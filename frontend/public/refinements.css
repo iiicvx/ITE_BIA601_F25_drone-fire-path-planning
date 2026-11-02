@@ -1,0 +1,197 @@
+/* زجاج الجرافيت نفسه، مع سلم خطوط عربي مقصود ومساحات لمس مناسبة.
+   تُفحص القيم مقابل ui-policy.json بأداة lintapple على الموقع المعروض. */
+:root{
+  --sans:"Akhbar MT","Segoe UI",Tahoma,sans-serif;
+  --display:var(--sans);--serif-t:var(--sans);
+  --mono:var(--sans);
+  --type-caption:12px;--type-small:14px;--type-body:16px;--type-title:18px;
+  --text-tertiary:#afbdc8;
+  --ok:#a4f0ca;
+}
+html{background:#05090b;font-size:16px}
+body{font-size:16px}
+.stage-loading{font-size:14px}
+button,input,select{font-family:var(--sans)}
+input[type=range]{font-size:14px}
+h1{font-size:48px}
+.chapter h2{font-size:32px}
+h3,.panel h3,.ledger h3,.step-card h3,.cases-heading h3,.insight-card h3{font-size:18px}
+p,.prose,.prose p,.lede,.hero-copy .lede,.insight-card>p:not(.insight-metric){font-size:16px}
+.eyebrow,.kicker,.topnav a,.brand,.menu-btn,.caption,.note,.constraints li,.terms li,.alg-card p,
+.panel figcaption,.hazard-fig figcaption,.step-card p,.alg,.hero .alg-key .alg,.tabs button,
+.sensitivity summary,.sens-row,.case-card summary,.case-body p,.winner-card p,
+.flight-details summary,.flight-details output,.lab-summary,.lab-summary p,.plan-facts,.scene-hud,.winner-banner,
+.viewer-tools button,.liquid-option,.readout-title>span,.flight-readout dd{font-size:14px}
+.note-inline,.en-note,.hero .stat-strip dd,.case-expect,.case-number,.case-verdicts,.case-verdicts b,
+.winner-card .note,.insight-card small,.lab-config label,.playback-speed,
+.flight-readout dt,.workspace-metrics dt,.insight-number,.stage-alt button,.step-card h3 .ltr{font-size:12px}
+.stat-strip dt,.hero .stat-strip dt{font-size:32px}
+.scroll-hint>span:last-child{width:auto;height:auto;background:none;overflow:visible;font-size:14px}
+.scroll-hint>span:last-child::after{display:none}
+#algRail .alg-card .kicker{font-size:16px}
+.rail-nav button{font:14px var(--sans)}
+.rail{margin-inline:0;padding-inline:0;max-width:100%}
+.winner-banner strong{font-size:24px}
+.legend{font-size:14px}
+label{font-size:14px}
+#costBars .cb{font-size:14px}
+#compare #cmpRows>.note{color:#d5dfe7}
+.telemetry dt{font-size:12px}
+.telemetry dd{font-size:16px}
+.flight-timeline #missionClock{font-size:14px}
+.winner-card .kicker{font-size:12px}
+.stage-alt button{color:#f0f6fb}
+.insight-number{color:#e2edf5}
+.status-unsafe{color:#ffb3bc!important}
+.sens-row>.mono{color:#edf4f8}
+.scene-options{gap:8px}
+details:not([open])>.case-body,
+.flight-details details:not([open])>:not(summary):not(.official-liquid-source):not(.official-liquid-chrome):not(.official-liquid-defs),
+.sensitivity:not([open])>:not(summary):not(.official-liquid-source):not(.official-liquid-chrome):not(.official-liquid-defs){display:none}
+.zoom-tools svg,.rail-nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.control-tooltip{position:fixed;z-index:240;max-width:calc(100vw - 24px);padding:8px 12px;border:1px solid #6a7d8c;border-radius:10px;background:#101b24;color:#f0f5f9;font:12px/1.6 var(--sans);box-shadow:0 6px 20px rgba(0,0,0,.45);pointer-events:none}
+.winner-code{font-size:40px}
+.insight-metric{font-size:24px}
+.workspace-metrics dd,.workspace-metrics .ltr,.readout-title{font-size:18px}
+.mono,.alg-card .stat,.formula,.constraints b,.flight-timeline .mono,.winner-statuses,
+.winner-banner span:last-child,.lab-config select,.flight-details .btn{font-size:14px}
+.btn,.compact.btn,.flight-timeline .btn,.lab-config .btn,.viewer-tools button,.spring-trigger{font-size:14px;min-height:48px}
+sub,sup{font-size:12px}
+#hazardSection text{font-size:24px;fill:#dce8f0}
+.hazard-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 18px}
+.hazard-facts>div{padding:12px;border:1px solid var(--glass-border);border-radius:12px;background:#111b24}
+.hazard-facts dt{font-size:12px;color:var(--text-secondary)}
+.hazard-facts dd{font-size:16px;margin:6px 0 0;font-variant-numeric:tabular-nums}
+.scene-hud{align-items:flex-start}
+#specialTable .case-outcome{font-size:12px}
+svg text{font-family:var(--sans);font-size:12px}
+table,th,td{font-size:14px;font-variant-numeric:tabular-nums}
+table.ltr{direction:rtl}
+th,td{text-align:start}
+td:not(:first-child){text-align:right}
+[data-ui-number]{font-variant-numeric:tabular-nums}
+/* إبقاء القيم العددية في العمود البصري نفسه مع عناوينها العربية. */
+#checksBox{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}
+#checksBox>div{padding:8px 12px;text-align:center}
+#checksBox dt{overflow-wrap:break-word}
+#checksBox dd{direction:ltr;text-align:center;margin:8px 0 0}
+#validation>.split{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px}
+#specialTable{table-layout:fixed;min-width:500px;direction:rtl}
+#specialTable col:first-child{width:32%}
+#specialTable th,#specialTable td{padding:12px 8px;white-space:normal;vertical-align:middle}
+#specialTable th[scope=row]{color:var(--text-primary);font-weight:400;text-align:start;overflow-wrap:break-word}
+#specialTable th[scope=col]:not(:first-child),#specialTable td{text-align:center}
+#specialTable .case-score{display:block;direction:ltr;unicode-bidi:isolate;white-space:nowrap;text-align:center}
+#specialTable .case-outcome{display:block;margin-top:4px;line-height:1.6;text-align:center;overflow-wrap:break-word}
+.hero-copy{background:linear-gradient(270deg,rgba(5,9,13,.85),rgba(5,9,13,.65) 70%,rgba(5,9,13,.2));border-radius:24px}
+.hero-copy .lede,.hero-copy .eyebrow{color:#e0e6ec}
+.step-card{opacity:.85}
+.step.active .step-card{opacity:1}
+.hero-cta{gap:12px}
+.hero .alg-key .alg{min-height:44px}
+.topnav a{min-height:44px}
+.tabs,.stage-alt{gap:8px;padding:8px}
+.stage-alt button{min-width:44px;padding:8px 10px;font-size:14px}
+.camera-modes{gap:8px;padding:8px;flex-wrap:wrap}
+.camera-modes button{min-width:44px;min-height:44px;padding:8px 12px;font-size:14px}
+.viewer-tools{gap:8px;padding:8px}
+.zoom-tools{gap:8px;padding-inline-start:8px}
+.zoom-tools button{width:44px;min-height:44px;padding:4px;font-size:16px}
+.viewer-tools [data-restart]{background:var(--noir-inset);border:1px solid var(--glass-border);white-space:nowrap}
+.drone-picker{flex:1 1 260px;font-size:12px;padding-inline:0}
+.drone-picker>span{font-size:12px}
+.camera-dock{max-width:calc(100% - 40px);justify-content:center}
+.viewer-tools .drone-picker .spring-select{min-width:0;max-width:240px}
+.story-camera-dock{max-width:min(510px,calc(100vw - 48px))}
+.story-camera-dock .camera-modes{width:100%;flex-wrap:nowrap}
+.story-camera-dock .camera-modes button{padding-inline:9px;white-space:nowrap}
+.story-stage .scene-hud{top:300px}
+.story-stage.is-fleet .scene-hud{top:auto;bottom:96px}
+.playback-speed{flex:0 1 185px;gap:8px}
+.playback-speed .spring-select{min-width:72px;flex:1}
+.case-card summary{gap:12px;font-size:14px}
+.case-body .btn{min-height:48px}
+.case-verdicts{font-size:14px}
+.case-expect{padding:3px 9px}
+.case-card summary::after{font-size:20px}
+.flight-readout{min-width:190px}
+.flight-readout dt{font-size:12px}
+.flight-readout dd{font-size:14px}
+.flight-timeline{gap:16px}
+
+/* EasyUI SpringSelect: زجاج جرافيتي بارز، وكبسولة اختيار محايدة، ونص حاد. */
+.spring-select{position:relative;display:block;width:100%;min-width:0;flex:1}
+.spring-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:10px 14px;border-radius:14px;border:1px solid rgba(129,146,158,.6);background:var(--noir-inset);box-shadow:inset 0 1px 0 rgba(220,234,242,.16),0 2px 9px rgba(0,0,0,.2);color:var(--text-primary);font-family:var(--sans);text-align:start;cursor:pointer}
+.spring-value{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;font-size:14px}
+.spring-trigger svg{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;transition:transform .22s cubic-bezier(.22,1,.36,1)}
+.spring-trigger[aria-expanded=true]{border-color:#c0ced9}
+.spring-trigger[aria-expanded=true] svg{transform:rotate(180deg)}
+.spring-trigger:disabled{opacity:.5;cursor:wait}
+.spring-menu{position:fixed;inset:auto;margin:0;z-index:220;border:1px solid rgba(162,181,194,.5);border-radius:18px;padding:8px;overflow:hidden;background:linear-gradient(140deg,rgba(46,57,68,.98),rgba(10,17,23,.98) 50%,rgba(24,35,44,.98));color:var(--text-primary);box-shadow:inset 0 1px 0 rgba(227,238,245,.2),0 18px 60px rgba(0,0,0,.58);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);font-family:var(--sans);font-size:14px;max-height:320px}
+.spring-list-scroll{max-height:var(--popup-content-max,302px);overflow:auto;overscroll-behavior:contain;border-radius:10px;scrollbar-width:thin;scrollbar-color:#62717d #111a22}
+.spring-menu::backdrop{background:transparent}
+.spring-option{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;border:1px solid transparent;padding:10px 12px;border-radius:10px;cursor:pointer;color:#d4dce3;font-size:14px;line-height:1.6}
+.spring-option.active{background:#35434e;color:#fff;border-color:#617382;box-shadow:inset 0 1px 0 rgba(225,238,246,.15)}
+.spring-option[aria-selected=true]{color:#f7fafc;font-weight:600}
+.spring-option[aria-disabled=true]{opacity:.45;cursor:not-allowed}
+.spring-option svg{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8}
+.spring-group{padding:12px 12px 6px;font-size:12px;color:#b4c2cc}
+.spring-trigger:focus-visible,.viewer-tools button:focus-visible,.menu-btn:focus-visible{outline:2px solid #d1e4f0;outline-offset:3px}
+
+/* قاعدة الزجاج العامة السابقة جعلت التنقل position:relative في الجوال، فكانت روابطه
+   تكبّر الكبسولة نفسها. والقائمة المنسدلة المنفصلة الصريحة تعالج السبب. */
+.topbar-inner{overflow:visible}
+@media(max-width:1020px){
+  #validation>.split{grid-template-columns:minmax(0,1fr)}
+  .topbar-inner{position:relative;min-height:60px;flex-wrap:nowrap}
+  .topbar-inner>#topnav{position:absolute;top:calc(100% + 10px);inset-inline:0;z-index:20;display:none;max-height:calc(100dvh - 100px);overflow:auto;gap:8px;padding:12px;border-radius:20px;background:rgba(12,20,27,.98);border:1px solid rgba(151,173,189,.48);box-shadow:inset 0 1px 0 rgba(215,232,245,.17),0 16px 48px rgba(0,0,0,.65)}
+  .topbar-inner>#topnav.open{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .topbar-inner>#topnav a{padding:10px 12px;border-radius:12px;font-size:14px;min-height:48px}
+  .topbar-inner>.official-liquid-header,.topbar-inner>.official-liquid-header+.official-liquid-chrome{border-radius:999px}
+  .menu-btn{min-height:44px}
+}
+@media(max-width:720px){
+  .scene-hud{flex-wrap:wrap}
+  .scene-hud>span{max-width:100%;white-space:normal;overflow:visible;font-size:12px}
+  .flight-timeline #missionClock{font-size:12px}
+  h1{font-size:32px}
+  .chapter h2{font-size:24px}
+  .winner-code{font-size:32px}
+  .hero-copy{padding:26px 20px;background:rgba(5,10,15,.78)}
+  .hero .stat-strip dt{font-size:24px}
+  .hero .stat-strip dd{font-size:12px}
+  .workspace-metrics dd,.workspace-metrics .ltr{font-size:16px}
+  .lab-config label{flex-basis:calc(50% - 12px)}
+  .camera-dock{max-width:calc(100% - 20px);inset-inline:10px;bottom:12px;gap:8px}
+  .camera-dock .camera-modes{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  .camera-dock .camera-modes button{font-size:14px;padding-inline:8px}
+  .viewer-tools .drone-picker{flex:1 1 100%;justify-content:start}
+  .viewer-tools .drone-picker .spring-select{max-width:none}
+  .viewer-tools .zoom-tools{flex:0 0 auto}
+  .viewer-tools .zoom-tools button{min-height:44px}
+  .camera-dock [data-restart]{flex:1 1 125px;width:auto;min-height:44px}
+  .drone-picker>.spring-select{min-width:0}
+  .story-camera-dock{left:12px;max-width:calc(100vw - 24px);top:96px}
+  .story-camera-dock .camera-modes button{font-size:14px;padding-inline:6px}
+  .story-camera-dock [data-restart]{flex:1 1 125px;width:auto;min-height:44px}
+  .story-stage .scene-hud{top:340px}
+  .flight-timeline .mono{font-size:12px}
+  .flight-timeline .playback-speed{flex-basis:185px}
+  .liquid-option{font-size:14px;gap:8px}
+  .flight-readout{min-width:170px;top:76px}
+  .case-expect{font-size:12px;white-space:normal;text-align:center}
+  .case-verdicts{grid-template-columns:1fr}
+  .stage-alt{gap:8px;padding:8px}
+  .stage-alt button{padding:8px;min-width:44px}
+}
+@media(prefers-reduced-motion:reduce){.spring-trigger svg{transition:none}}
+@media(max-height:600px) and (min-width:721px){
+  .story-camera-dock{top:84px;left:12px;max-width:310px}
+  .story-camera-dock .camera-modes{display:grid;grid-template-columns:1fr 1fr;white-space:normal}
+  .story-camera-dock .drone-picker{flex:1 1 100%}
+  .story-camera-dock [data-restart]{flex:1 1 120px;width:auto}
+  .story .step-card{width:300px;padding:16px 20px}
+  .story .stage-dock{justify-content:flex-start;padding-inline:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){.step-card{opacity:1}}
+@media(forced-colors:active){.spring-trigger,.spring-menu,.spring-option.active{forced-color-adjust:auto;background:Canvas;color:CanvasText;border-color:ButtonBorder}}

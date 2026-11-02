@@ -1,0 +1,31 @@
+# إعدادات تجارب المقارنة الإحصائية للخوارزميات.
+
+algorithms: [ga, pso, aco, dp]
+alpha: 0.05                      # مستوى الدلالة لاختبارات ويلكوكسون
+
+main:
+  cities: [small, medium, large]
+  seeds: 20                      # عدد البذور العشوائية (0..19) لقياس استقرار النتائج
+
+random:
+  sizes: [small, medium, large]
+  cities: 10                     # 10 مدن عشوائية لكل حجم
+  seeds: 1
+
+timing:
+  cities: [small, medium, large]
+  seeds: 2
+
+dp_sensitivity:
+  cities: [small, medium]
+  grid_res: [20, 10, 5]
+  prune: [true, false]
+
+tuning:
+  - {alg: ga, city: medium, seeds: 5, budget: null}
+  - {alg: pso, city: medium, seeds: 5, budget: null}
+  - {alg: aco, city: medium, seeds: 5, budget: null}
+  - {alg: aco, city: large, seeds: 3, budget: 4000}
+
+special:
+  seeds: 3

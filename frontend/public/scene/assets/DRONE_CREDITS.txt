@@ -1,0 +1,23 @@
+Rescue Hexacopter (rescue_hexacopter.glb)
+=========================================
+
+Based on "Vampire UAV (BabaYaga)" by Karosio
+https://sketchfab.com/3d-models/vampire-uav-babayaga-f49e65781b32465c86841617e82fcae7
+License: CC BY-NC-SA 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Changes made for this university project:
+- removed the munition rack and the four bombs
+- split the six propellers into separate nodes with pivots at the hubs (Prop_0..Prop_5)
+- civilian rescue livery: red canopy, white body ring, "RESCUE" marking on top
+- added navigation lights (red port, green starboard, white rear) and a top anti-collision strobe
+- added one payload under the body: a fire-suppression capsule, released over the fire
+- rescaled to real size (about 1.8 m across), textures converted to WebP, tangents generated
+
+The modified model keeps the same license (CC BY-NC-SA 4.0): non-commercial use,
+credit the original author, and share any further modifications under the same license.
+
+Line to put on the website credits page:
+  3D drone model: modified from "Vampire UAV (BabaYaga)" by Karosio (Sketchfab), CC BY-NC-SA 4.0.
+
+السطر العربي لصفحة الحقوق:
+  نموذج الدرون ثلاثي الأبعاد: معدّل عن نموذج "Vampire UAV (BabaYaga)" للمصمم Karosio على Sketchfab، بترخيص CC BY-NC-SA 4.0.

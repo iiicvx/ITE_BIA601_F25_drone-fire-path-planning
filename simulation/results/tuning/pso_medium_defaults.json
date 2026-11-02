@@ -1,0 +1,20 @@
+{
+ "pop_size": 60,
+ "w": 0.7298,
+ "w_end": null,
+ "c1": 1.49618,
+ "c2": 1.49618,
+ "v_max": 0.2,
+ "topology": "global",
+ "ring_k": 2,
+ "init_velocity": 0.0,
+ "r_mode": "particle",
+ "restart_stall": 20,
+ "restart_mode": "init",
+ "restart_sigma": 0.05,
+ "stall_tol": 0.0001,
+ "max_stall": null,
+ "target_f": null,
+ "init.mode": "via",
+ "_budget": null
+}

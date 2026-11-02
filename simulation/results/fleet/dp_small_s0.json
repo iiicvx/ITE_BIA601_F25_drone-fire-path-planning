@@ -1,0 +1,365 @@
+{
+ "algorithm": "DP",
+ "scenario": "fleet_small",
+ "seed": 0,
+ "params": {
+  "pop_size": null,
+  "prune": true,
+  "max_sweeps": null
+ },
+ "best_f": 1.564354104113097,
+ "feasible": true,
+ "fe_used": 1,
+ "budget": 10000,
+ "time_s": 0.04071079999266658,
+ "first_feasible_fe": 1,
+ "paths": [
+  [
+   [
+    127.67,
+    20.0,
+    10.0
+   ],
+   [
+    165.0,
+    65.0,
+    35.0
+   ],
+   [
+    168.0,
+    264.95,
+    42.55
+   ]
+  ],
+  [
+   [
+    157.67,
+    20.0,
+    10.0
+   ],
+   [
+    187.66,
+    149.0,
+    82.89
+   ]
+  ]
+ ],
+ "report": {
+  "scenario": "fleet_small",
+  "F": 1.564354104113097,
+  "F_obj": 1.564354104113097,
+  "V": 0.0,
+  "feasible": true,
+  "mission_time_s": 26.370372766784868,
+  "min_separation_m": 12.072651240472622,
+  "min_separation_at_s": 6.358874821853313,
+  "min_separation_pair": [
+   0,
+   1
+  ],
+  "min_clearance_m": 7.628548759152983,
+  "drones": [
+   {
+    "k": 0,
+    "length_m": 263.7037276678487,
+    "time_s": 26.370372766784868,
+    "energy_kj": 8.529074553356974,
+    "battery_used_pct": 1.0674686549883572,
+    "exposure": 0.5299003623248596,
+    "max_hazard": 0.040818050589912294,
+    "clearance_m": 7.628548759152983,
+    "collision_m": 0.0,
+    "core_m": 0.0,
+    "turns_deg": [
+     43.1
+    ],
+    "F_k": 1.6191477068355036
+   },
+   {
+    "k": 1,
+    "length_m": 151.173252263752,
+    "time_s": 15.1173252263752,
+    "energy_kj": 10.31246504527504,
+    "battery_used_pct": 1.290671469996876,
+    "exposure": 0.14452920885027876,
+    "max_hazard": 0.0346799876516742,
+    "clearance_m": 24.0,
+    "collision_m": 0.0,
+    "core_m": 0.0,
+    "turns_deg": [],
+    "F_k": 1.5095605013906903
+   }
+  ],
+  "terms": {
+   "J_T": [
+    1.053244523445034,
+    1.0
+   ],
+   "J_E": [
+    1.0322688057135312,
+    1.0
+   ],
+   "J_H": [
+    0.0021164458292875477,
+    0.0009560501390690373
+   ],
+   "J_S": [
+    0.057208644481657245,
+    0.0
+   ],
+   "V_col": [
+    0.0,
+    0.0
+   ],
+   "V_core": [
+    0.0,
+    0.0
+   ],
+   "V_bat": [
+    0.0,
+    0.0
+   ],
+   "V_bound": [
+    0.0,
+    0.0
+   ],
+   "V_sep": 0.0
+  },
+  "weights": {
+   "w_T": 1.0,
+   "w_E": 0.5,
+   "w_H": 10.0,
+   "w_S": 0.5
+  },
+  "penalty": {
+   "M": 1000,
+   "P0": 100
+  }
+ },
+ "history": [
+  [
+   1,
+   1.564354104113097
+  ]
+ ],
+ "iter_history": [
+  [
+   1,
+   1,
+   1.564354104113097
+  ]
+ ],
+ "snapshots": [],
+ "extra": {
+  "sweeps": [
+   32,
+   32
+  ],
+  "relaxed_edges": [
+   284214,
+   264385
+  ],
+  "converged": [
+   true,
+   true
+  ],
+  "grid_cost": [
+   1.6036138692388462,
+   1.5504305196407115
+  ],
+  "path_cells": [
+   25,
+   13
+  ],
+  "no_path": [],
+  "changed_per_sweep": [
+   [
+    17,
+    57,
+    73,
+    117,
+    173,
+    241,
+    343,
+    381,
+    493,
+    655,
+    809,
+    941,
+    887,
+    537,
+    531,
+    603,
+    676,
+    455,
+    421,
+    387,
+    373,
+    396,
+    444,
+    533,
+    607,
+    706,
+    722,
+    319,
+    68,
+    16,
+    3,
+    0
+   ],
+   [
+    17,
+    57,
+    85,
+    125,
+    141,
+    169,
+    245,
+    333,
+    449,
+    605,
+    736,
+    914,
+    1081,
+    795,
+    649,
+    486,
+    368,
+    358,
+    367,
+    355,
+    338,
+    367,
+    406,
+    496,
+    532,
+    578,
+    582,
+    209,
+    125,
+    64,
+    27,
+    0
+   ]
+  ],
+  "goal_cost_per_sweep": [
+   [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1.603614,
+    1.603614,
+    1.603614,
+    1.603614,
+    1.603614,
+    1.603614,
+    1.603614,
+    1.603614,
+    1.603614
+   ],
+   [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431,
+    1.550431
+   ]
+  ]
+ },
+ "validator": {
+  "valid": true,
+  "checks": {
+   "endpoints": true,
+   "bounds": true,
+   "towers": true,
+   "fire_core": true,
+   "separation": true,
+   "battery": true
+  },
+  "problems": [],
+  "min_clearance_m": 7.628558391299309,
+  "min_margin_linf_m": 7.516983016983005,
+  "max_hazard": 0.04560098082550132,
+  "min_separation_m": 12.07418924483387,
+  "drones": [
+   {
+    "k": 0,
+    "endpoints_ok": true,
+    "bounds_ok": true,
+    "min_margin_linf_m": 7.516983016983005,
+    "min_clearance_m": 7.628558391299309,
+    "towers_ok": true,
+    "max_hazard": 0.04114001530907676,
+    "core_ok": true,
+    "length_m": 263.7037276678487,
+    "energy_kj": 8.529074553356974,
+    "battery_pct": 1.0674686549883572,
+    "battery_ok": true
+   },
+   {
+    "k": 1,
+    "endpoints_ok": true,
+    "bounds_ok": true,
+    "min_margin_linf_m": 22.141064814814797,
+    "min_clearance_m": 24.0,
+    "towers_ok": true,
+    "max_hazard": 0.04560098082550132,
+    "core_ok": true,
+    "length_m": 151.173252263752,
+    "energy_kj": 10.31246504527504,
+    "battery_pct": 1.290671469996876,
+    "battery_ok": true
+   }
+  ],
+  "agrees_with_fitness": true
+ },
+ "revision": "fleet-246-v1",
+ "scenario_sha256": "a89710723a191865cc88027423e7a96d3d9206717213b6e039be38d16a878129"
+}

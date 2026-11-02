@@ -1,0 +1,30 @@
+# Installed environments and generated Python files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.benchmarks/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node and browser-test output
+node_modules/
+test-results/
+playwright-report/
+frontend/results/*.png
+
+# Local server state and logs
+*.log
+.drone-fire-server.pid
+
+# Local editor settings and credentials
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example

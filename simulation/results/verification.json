@@ -1,0 +1,49 @@
+{
+  "checked_at_utc": "2026-10-31T12:33:09.155719+00:00",
+  "hazard_step_m": 0.1,
+  "separation_step_s": 0.01,
+  "groups": {
+    "published_135": {
+      "runs": 336,
+      "safe": 332,
+      "unsafe": 4,
+      "verdict_disagreements": 0,
+      "score_mismatches": 0,
+      "metric_mismatches": 0,
+      "max_clearance_sampling_difference_m": 0.00019761147700236847,
+      "max_separation_sampling_difference_m": 0.009876794168034664
+    },
+    "fleet_246": {
+      "runs": 12,
+      "safe": 12,
+      "unsafe": 0,
+      "verdict_disagreements": 0,
+      "score_mismatches": 0,
+      "metric_mismatches": 0,
+      "max_clearance_sampling_difference_m": 0.0001423732317773485,
+      "max_separation_sampling_difference_m": 0.004673562655288066
+    },
+    "quick_135": {
+      "runs": 60,
+      "safe": 60,
+      "unsafe": 0,
+      "verdict_disagreements": 0,
+      "score_mismatches": 0,
+      "metric_mismatches": 0,
+      "max_clearance_sampling_difference_m": 0.0001336526405024685,
+      "max_separation_sampling_difference_m": 0.0070972325184648355
+    },
+    "special_cases": {
+      "runs": 100,
+      "safe": 73,
+      "unsafe": 27,
+      "verdict_disagreements": 0,
+      "score_mismatches": 0,
+      "metric_mismatches": 0,
+      "max_clearance_sampling_difference_m": 0.0,
+      "max_separation_sampling_difference_m": 0.0
+    }
+  },
+  "failures": [],
+  "passed": true
+}

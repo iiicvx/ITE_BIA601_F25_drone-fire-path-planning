@@ -1,0 +1,10 @@
+{
+  "buildings": 186,
+  "groundedFireWings": 22,
+  "backedFireDecals": 44,
+  "roofPads": 6,
+  "failures": [],
+  "treeBase": 2.3841858265427618e-8,
+  "carGroundClearance": -1.4305114426349519e-8,
+  "passed": true
+}

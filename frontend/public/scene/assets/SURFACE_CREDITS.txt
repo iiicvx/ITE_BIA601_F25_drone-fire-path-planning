@@ -1,0 +1,47 @@
+Photographic surface assets bundled locally for the 3D scene
+
+Asphalt 02 — Poly Haven (CC0)
+https://polyhaven.com/a/asphalt_02
+asphalt_02_diff_1k.jpg
+asphalt_02_disp_1k.jpg
+
+Concrete Wall 003 — Poly Haven (CC0)
+https://polyhaven.com/a/concrete_wall_003
+concrete_wall_003_diff_1k.jpg
+License: https://polyhaven.com/license
+
+Grass Ground / Leafy Grass — Poly Haven (CC0)
+https://polyhaven.com/a/grass_ground
+https://polyhaven.com/a/leafy_grass
+grass_ground_diff_1k.jpg
+grass_ground_nor_gl_1k.jpg — OpenGL normal map (linear colour data)
+leafy_grass_diff_1k.jpg
+
+Kiara 1 Dawn — Poly Haven (CC0)
+https://polyhaven.com/a/kiara_1_dawn
+kiara_1_dawn_1k.hdr — local high-dynamic-range sky/reflection environment
+
+Facade 001 / Facade 010 — ambientCG (CC0)
+https://ambientcg.com/view?id=Facade001
+https://ambientcg.com/view?id=Facade010
+https://docs.ambientcg.com/license/
+Facade001_1K-JPG_{Color,NormalGL,Roughness,Metalness}.jpg
+Facade010_1K-JPG_{Color,NormalGL,Roughness,Metalness,Emission}.jpg
+The room atlas supplies the matching surface and interior emission maps.
+
+HDR decoding uses the official Three.js r160 RGBELoader, distributed under
+frontend/public/scene/vendor/three/LICENSE (MIT); only its import path is adapted locally.
+
+Lunar color and elevation maps — NASA's Scientific Visualization Studio
+CGI Moon Kit, visualization by Ernie Wright; LROC WAC / LOLA source data.
+https://svs.gsfc.nasa.gov/4720/
+lroc_color_2k.jpg — December 2025 color visualization, 2048 x 1024
+ldem_3_8bit.jpg — LOLA elevation visualization, 1024 x 512
+NASA reproduction guidelines: https://www.nasa.gov/nasa-brand-center/images-and-media/
+
+The lunar asset is illustrative scenery. Its appearance does not represent an
+astronomical ephemeris, and its elevation image is used only for subtle shading.
+
+All assets are bundled locally: the running simulator makes no third-party
+texture or environment requests. Flame density, smoke and grass movement are
+authored visual effects and do not alter the mathematical planning/hazard model.

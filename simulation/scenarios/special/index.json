@@ -1,0 +1,56 @@
+{
+ "special_empty_city": {
+  "case": "empty_city",
+  "expect": "feasible",
+  "known_F": 1.5,
+  "what": "no towers and no fires: the straight line is optimal and scores exactly 1.5"
+ },
+ "special_behind_tall_tower": {
+  "case": "behind_tall_tower",
+  "expect": "feasible",
+  "route": "around",
+  "what": "a 120 m tower hides the target: flying round it is cheaper than climbing 120 m over it"
+ },
+ "special_narrow_street": {
+  "case": "narrow_street",
+  "expect": "feasible",
+  "what": "two long 140 m towers with a 25 m street between them (15 m after the 5 m margins)"
+ },
+ "special_fire_on_line": {
+  "case": "fire_on_line",
+  "expect": "feasible",
+  "what": "the straight line from S to G passes through the fire core; the plan must go round it"
+ },
+ "special_target_near_fire": {
+  "case": "target_near_fire",
+  "expect": "feasible",
+  "what": "release point only 1.1 R from the burning facade (normally 1.6 R): reach versus safety"
+ },
+ "special_crossing_drones": {
+  "case": "crossing_drones",
+  "expect": "feasible",
+  "dp": "may_fail_separation",
+  "what": "two drones whose straight lines cross at the same moment; DP plans them separately"
+ },
+ "special_maze": {
+  "case": "maze",
+  "expect": "feasible",
+  "what": "towers taller than the flight ceiling with walled-off streets: the drone must find its way"
+ },
+ "special_enclosed_target": {
+  "case": "enclosed_target",
+  "expect": "infeasible",
+  "what": "the target is inside a courtyard of towers taller than the ceiling: no safe plan exists"
+ },
+ "special_small_battery": {
+  "case": "small_battery",
+  "expect": "feasible",
+  "route": "around",
+  "what": "10 kJ usable: enough to go round the tower (about 8.7 kJ), not to climb over it (about 20 kJ)"
+ },
+ "special_tiny_battery": {
+  "case": "tiny_battery",
+  "expect": "infeasible",
+  "what": "5 kJ usable, less than even the straight line needs (about 7.8 kJ): the mission is impossible"
+ }
+}

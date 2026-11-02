@@ -1,0 +1,72 @@
+# إعدادات أبعاد البيئة الحضرية وأحجام المسألة (Small / Medium / Large).
+# الوحدات: متر، ثانية، جول.
+
+common:
+  z_min: 10              # أدنى ارتفاع مسموح للطيران
+  d_safe: 5              # هامش الأمان حول الأبراج
+  grid_res: 10           # حجم الخلية الفراغية (Voxel) لـ ACO و DP
+  base_size: [20, 60]    # مجال أبعاد قاعدة البرج
+  min_gap: 25            # أقل مسافة فاصلة بين الأبراج
+  edge_margin: 15        # المسافة عن حدود الخريطة
+  max_place_tries: 500
+  drone:
+    speed: 10            # سرعة الطيران الثابتة (م/ث)
+    d_sep: 10            # مسافة الأمان الدنيا بين مُسيَّرتين في نفس اللحظة
+    e_c: 20              # الطاقة لكل متر من طول المسار ثلاثي الأبعاد (جول)
+    e_up: 100            # الطاقة الإضافية لكل متر صعود شاقولي (جول)
+    battery_kj: 799      # سعة البطارية الكلية (كيلوجول)
+    battery_usable: 0.8  # النسبة القابلة للاستخدام من البطارية
+  staging:
+    spacing: 30
+    inset: 20
+    clear_radius: 35
+  fire:
+    I: [0.8, 1.0]        # شدة الحريق
+    Hf: 80               # معامل التلاشي الشاقولي للعمود الحراري
+    k: 0.25              # معامل اتساع العمود الحراري مع الارتفاع
+    tau_core: 0.5        # عتبة قلب اللهب المحظور
+    grid_tau: 0.45       # عتبة حجب الخلايا في الشبكة الفراغية
+    sample_ds: 2         # خطوة أخذ العينات على المسار (متر)
+    min_separation: 80
+    min_dist_staging: 0.35
+    drone_fire_z_min: 35     # ارتفاع حرائق الواجهات فوق مدى السلم الأرضي
+    ground_fire_z: [15, 28]
+    target_offset_R: 1.6
+    target_drop: 5
+    target_clearance: 10
+
+sizes:
+  small:
+    W: 300
+    z_max: 150
+    n_buildings: 8
+    height: [30, 120]
+    n_fires: 1
+    n_drones: 1
+    fire_R: [15, 15]
+    n_waypoints: 6
+    budget_fe: 10000
+  medium:
+    W: 600
+    z_max: 250
+    n_buildings: 25
+    height: [40, 200]
+    n_fires: 3
+    n_drones: 3
+    fire_R: [15, 15]
+    n_waypoints: 10
+    budget_fe: 24000
+  large:
+    W: 1000
+    z_max: 350
+    n_buildings: 60
+    height: [40, 320]
+    n_fires: 6
+    n_drones: 5
+    fire_R: [12, 20]
+    n_waypoints: 14
+    budget_fe: 40000
+
+seeds:
+  main: 42
+  random: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110]

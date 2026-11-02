@@ -1,0 +1,116 @@
+study,algorithm,city,parameter,value,is_default,runs,mean_F,std_F,change_pct,worse_seeds,seeds,time_s,memory_mb,spread_pct
+GA medium,GA,medium,pop_size,30,False,5,1.58376,0.0408618,0.648785,4,5,,,2.41185
+GA medium,GA,medium,pop_size,60,True,5,1.57355,0.0204512,0,0,5,,,2.41185
+GA medium,GA,medium,pop_size,100,False,5,1.6115,0.0195338,2.41185,5,5,,,2.41185
+GA medium,GA,medium,crossover,sbx,False,5,1.68625,0.106489,7.16198,5,5,,,10.3138
+GA medium,GA,medium,crossover,segment,False,5,1.60356,0.0348201,1.90726,4,5,,,10.3138
+GA medium,GA,medium,crossover,drone,False,5,1.73584,0.0439855,10.3138,5,5,,,10.3138
+GA medium,GA,medium,crossover,drone+segment+sbx,True,5,1.57355,0.0204512,0,0,5,,,10.3138
+GA medium,GA,medium,p_c,0.6,False,5,1.57528,0.0136746,0.110186,3,5,,,3.56067
+GA medium,GA,medium,p_c,0.9,True,5,1.57355,0.0204512,0,0,5,,,3.56067
+GA medium,GA,medium,p_c,1.0,False,5,1.62958,0.16949,3.56067,1,5,,,3.56067
+GA medium,GA,medium,tournament_k,2,False,5,1.66726,0.0579889,5.95498,5,5,,,6.51263
+GA medium,GA,medium,tournament_k,3,True,5,1.57355,0.0204512,0,0,5,,,6.51263
+GA medium,GA,medium,tournament_k,5,False,5,1.56478,0.00995213,-0.557649,2,5,,,6.51263
+GA medium,GA,medium,p_mut,0.1,False,5,1.57609,0.0181728,0.161435,2,5,,,15.4307
+GA medium,GA,medium,p_mut,0.25,True,5,1.57355,0.0204512,0,0,5,,,15.4307
+GA medium,GA,medium,p_mut,0.5,False,5,1.71414,0.0772218,8.93422,5,5,,,15.4307
+GA medium,GA,medium,p_mut,1.0,False,5,1.81636,0.068398,15.4307,5,5,,,15.4307
+GA medium,GA,medium,mut_width,0,False,5,2.37227,0.266169,50.7593,5,5,,,50.7593
+GA medium,GA,medium,mut_width,1.5,False,5,1.63416,0.0738275,3.85147,5,5,,,50.7593
+GA medium,GA,medium,mut_width,2.5,True,5,1.57355,0.0204512,0,0,5,,,50.7593
+GA medium,GA,medium,mut_width,4,False,5,1.57781,0.012033,0.270885,3,5,,,50.7593
+GA medium,GA,medium,sigma_start,0.05,False,5,1.57541,0.0360053,0.117897,1,5,,,1.79907
+GA medium,GA,medium,sigma_start,0.1,True,5,1.57355,0.0204512,0,0,5,,,1.79907
+GA medium,GA,medium,sigma_start,0.2,False,5,1.60186,0.0246036,1.79907,5,5,,,1.79907
+GA medium,GA,medium,init.mode,uniform,False,5,1.69007,0.0689135,7.4046,5,5,,,7.4046
+GA medium,GA,medium,init.mode,via,True,5,1.57355,0.0204512,0,0,5,,,7.4046
+PSO medium,PSO,medium,pop_size,30,False,5,1.63732,0.0755262,-0.483255,1,5,,,1.76387
+PSO medium,PSO,medium,pop_size,60,True,5,1.64527,0.0550244,0,0,5,,,1.76387
+PSO medium,PSO,medium,pop_size,100,False,5,1.66634,0.0764031,1.28062,2,5,,,1.76387
+PSO medium,PSO,medium,w,0.4,False,5,1.5828,0.01408,-3.79731,0,5,,,23.2502
+PSO medium,PSO,medium,w,0.6,False,5,1.60239,0.0538344,-2.60626,1,5,,,23.2502
+PSO medium,PSO,medium,w,0.7298,True,5,1.64527,0.0550244,0,0,5,,,23.2502
+PSO medium,PSO,medium,w,0.9,False,5,1.96533,0.106785,19.4529,5,5,,,23.2502
+PSO medium,PSO,medium,c1,1.0,False,5,1.61957,0.051108,-1.5621,2,5,,,5.36615
+PSO medium,PSO,medium,c1,1.49618,True,5,1.64527,0.0550244,0,0,5,,,5.36615
+PSO medium,PSO,medium,c1,2.0,False,5,1.70786,0.0991994,3.80405,5,5,,,5.36615
+PSO medium,PSO,medium,c2,1.0,False,5,1.61432,0.0515526,-1.88161,1,5,,,8.86198
+PSO medium,PSO,medium,c2,1.49618,True,5,1.64527,0.0550244,0,0,5,,,8.86198
+PSO medium,PSO,medium,c2,2.0,False,5,1.76012,0.105705,6.98037,5,5,,,8.86198
+PSO medium,PSO,medium,v_max,0.05,False,5,1.80957,0.13137,9.98574,5,5,,,9.98574
+PSO medium,PSO,medium,v_max,0.1,False,5,1.71153,0.0747203,4.02702,4,5,,,9.98574
+PSO medium,PSO,medium,v_max,0.2,True,5,1.64527,0.0550244,0,0,5,,,9.98574
+PSO medium,PSO,medium,v_max,0.5,False,5,1.70798,0.263373,3.81126,3,5,,,9.98574
+PSO medium,PSO,medium,topology,ring,False,5,1.96843,0.111965,19.6417,5,5,,,19.6417
+PSO medium,PSO,medium,topology,global,True,5,1.64527,0.0550244,0,0,5,,,19.6417
+PSO medium,PSO,medium,r_mode,dimension,False,5,2.26646,0.254653,37.756,5,5,,,59.9988
+PSO medium,PSO,medium,r_mode,waypoint,False,5,2.63242,0.262292,59.9988,5,5,,,59.9988
+PSO medium,PSO,medium,r_mode,particle,True,5,1.64527,0.0550244,0,0,5,,,59.9988
+PSO medium,PSO,medium,restart_stall,10,False,5,1.63495,0.0812059,-0.627327,3,5,,,12.8769
+PSO medium,PSO,medium,restart_stall,20,True,5,1.64527,0.0550244,0,0,5,,,12.8769
+PSO medium,PSO,medium,restart_stall,40,False,5,1.66702,0.0565709,1.32155,4,5,,,12.8769
+PSO medium,PSO,medium,restart_stall,None,False,5,1.84681,0.0788736,12.2496,5,5,,,12.8769
+PSO medium,PSO,medium,init.mode,uniform,False,5,2.21007,0.573541,34.3282,5,5,,,34.3282
+PSO medium,PSO,medium,init.mode,via,True,5,1.64527,0.0550244,0,0,5,,,34.3282
+ACO medium,ACO,medium,pop_size,30,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,pop_size,60,True,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,pop_size,100,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,alpha,0.5,False,5,1.54087,0,0,0,5,,,0.0443634
+ACO medium,ACO,medium,alpha,1.0,True,5,1.54087,0,0,0,5,,,0.0443634
+ACO medium,ACO,medium,alpha,2.0,False,5,1.54156,0.000714328,0.0443634,3,5,,,0.0443634
+ACO medium,ACO,medium,beta,1.0,False,5,1.54087,0,0,0,5,,,0.0184721
+ACO medium,ACO,medium,beta,2.0,True,5,1.54087,0,0,0,5,,,0.0184721
+ACO medium,ACO,medium,beta,4.0,False,5,1.54116,0.000636456,0.0184721,1,5,,,0.0184721
+ACO medium,ACO,medium,rho,0.02,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,rho,0.1,True,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,rho,0.3,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,lambda_h,0.0,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,lambda_h,3.0,True,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,lambda_h,10.0,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,gb_every,1,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,gb_every,5,True,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,gb_every,25,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,conflict_margin,0,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,conflict_margin,5,True,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,conflict_margin,15,False,5,1.54087,0,0,0,5,,,0
+ACO medium,ACO,medium,prune,False,False,5,2.32869,0.0357468,51.1279,5,5,,,51.1279
+ACO medium,ACO,medium,prune,True,True,5,1.54087,0,0,0,5,,,51.1279
+"ACO large (4,000 FE)",ACO,large,alpha,0,False,3,1.56348,0.00157699,0.96063,3,3,,,1.19328
+"ACO large (4,000 FE)",ACO,large,alpha,0.5,False,3,1.5518,0.00233772,0.206582,3,3,,,1.19328
+"ACO large (4,000 FE)",ACO,large,alpha,1.0,True,3,1.5486,0.00157202,0,0,3,,,1.19328
+"ACO large (4,000 FE)",ACO,large,alpha,2.0,False,3,1.545,0.00126395,-0.23265,0,3,,,1.19328
+"ACO large (4,000 FE)",ACO,large,beta,1.0,False,3,1.55397,0.00454905,0.346803,3,3,,,0.487518
+"ACO large (4,000 FE)",ACO,large,beta,2.0,True,3,1.5486,0.00157202,0,0,3,,,0.487518
+"ACO large (4,000 FE)",ACO,large,beta,4.0,False,3,1.54642,0.001014,-0.140715,0,3,,,0.487518
+"ACO large (4,000 FE)",ACO,large,rho,0.02,False,3,1.55848,0.00160725,0.637591,3,3,,,0.967366
+"ACO large (4,000 FE)",ACO,large,rho,0.1,True,3,1.5486,0.00157202,0,0,3,,,0.967366
+"ACO large (4,000 FE)",ACO,large,rho,0.3,False,3,1.5435,0.000441679,-0.329774,0,3,,,0.967366
+"ACO large (4,000 FE)",ACO,large,lambda_h,0.0,False,3,1.55053,0.00253277,0.124589,2,3,,,0.297424
+"ACO large (4,000 FE)",ACO,large,lambda_h,3.0,True,3,1.5486,0.00157202,0,0,3,,,0.297424
+"ACO large (4,000 FE)",ACO,large,lambda_h,10.0,False,3,1.54593,0.000658742,-0.172835,0,3,,,0.297424
+"ACO large (4,000 FE)",ACO,large,gb_every,1,False,3,1.54666,0.000628859,-0.125359,0,3,,,0.125359
+"ACO large (4,000 FE)",ACO,large,gb_every,5,True,3,1.5486,0.00157202,0,0,3,,,0.125359
+"ACO large (4,000 FE)",ACO,large,gb_every,25,False,3,1.54829,0.00061665,-0.020076,2,3,,,0.125359
+"ACO large (4,000 FE)",ACO,large,conflict_margin,0,False,3,1.54823,0.00164388,-0.0244475,1,3,,,0.0449128
+"ACO large (4,000 FE)",ACO,large,conflict_margin,5,True,3,1.5486,0.00157202,0,0,3,,,0.0449128
+"ACO large (4,000 FE)",ACO,large,conflict_margin,15,False,3,1.54892,0.00388596,0.0204653,1,3,,,0.0449128
+"ACO large (4,000 FE)",ACO,large,pop_size,30,False,3,1.54522,0.00165165,-0.218497,0,3,,,0.542561
+"ACO large (4,000 FE)",ACO,large,pop_size,80,True,3,1.5486,0.00157202,0,0,3,,,0.542561
+"ACO large (4,000 FE)",ACO,large,pop_size,120,False,3,1.55362,0.00141164,0.324065,3,3,,,0.542561
+DP small,DP,small,"grid cell size (m), pruned",20,False,1,1.70623,0,3.70696,1,1,0.0135417,8.55469,6.23893
+DP small,DP,small,"grid cell size (m), pruned",10,True,1,1.64524,0,0,0,1,0.0439149,12.7773,6.23893
+DP small,DP,small,"grid cell size (m), pruned",5,False,1,1.60358,0,-2.53197,0,1,0.281115,51.9766,6.23893
+DP small,DP,small,"grid cell size (m), not pruned",20,False,1,2.07914,0,-16.3609,0,1,0.0120864,8.42969,19.6306
+DP small,DP,small,"grid cell size (m), not pruned",10,True,1,2.48585,0,0,0,1,0.0423531,12.6523,19.6306
+DP small,DP,small,"grid cell size (m), not pruned",5,False,1,2.56712,0,3.26964,1,1,0.278128,51.875,19.6306
+DP small,DP,small,line-of-sight pruning (10 m grid),off,False,1,2.48585,0,51.0935,1,1,0.0423531,12.6523,51.0935
+DP small,DP,small,line-of-sight pruning (10 m grid),on,True,1,1.64524,0,0,0,1,0.0439149,12.7773,51.0935
+DP medium,DP,medium,"grid cell size (m), pruned",20,False,1,1.64319,0,3.9104,1,1,0.0946852,12.668,6.48283
+DP medium,DP,medium,"grid cell size (m), pruned",10,True,1,1.58136,0,0,0,1,0.554214,45,6.48283
+DP medium,DP,medium,"grid cell size (m), pruned",5,False,1,1.54068,0,-2.57243,0,1,5.03222,314.871,6.48283
+DP medium,DP,medium,"grid cell size (m), not pruned",20,False,1,2.16909,0,1.9265,1,1,0.091773,12.5625,2.84064
+DP medium,DP,medium,"grid cell size (m), not pruned",10,True,1,2.12809,0,0,0,1,0.593178,45,2.84064
+DP medium,DP,medium,"grid cell size (m), not pruned",5,False,1,2.10864,0,-0.914139,0,1,5.06832,314.887,2.84064
+DP medium,DP,medium,line-of-sight pruning (10 m grid),off,False,1,2.12809,0,34.5741,1,1,0.593178,45,34.5741
+DP medium,DP,medium,line-of-sight pruning (10 m grid),on,True,1,1.58136,0,0,0,1,0.554214,45,34.5741

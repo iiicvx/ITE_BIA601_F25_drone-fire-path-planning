@@ -1,0 +1,4 @@
+city,runs,mean_F,std_F,best_F,worst_F,median_F,success_rate,mean_first_feasible_fe,mean_time_s,budget,reference_F
+small,5,1.5685,0.0061,1.5632,1.5768,1.5649,1.0,23.0,4.4281,10000,4.3771
+medium,5,1.6757,0.095,1.5682,1.7845,1.7061,1.0,147.4,41.6815,24000,2.4767
+large,5,2.6012,0.3946,1.964,3.0348,2.7074,1.0,12072.6,177.4659,40000,2.8787

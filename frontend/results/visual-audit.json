@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "testRenderer": "SwiftShader (headless software, not a hardware benchmark)",
+  "rotors": 6,
+  "rotorsAnimated": true,
+  "bodyAnimated": true,
+  "groundGeometry": "ShapeGeometry",
+  "moonGeometry": "SphereGeometry",
+  "moonImageWidth": 2048,
+  "facadeImageWidth": 1024,
+  "lawnImageWidth": 1024,
+  "grassTufts": 16759,
+  "environmentType": 1016,
+  "volumetricFire": true,
+  "sameDroneGeometry": true,
+  "purpleTrails": true,
+  "purpleSnapshots": true,
+  "noBlackContactDecals": true,
+  "radius": 12.488319167365466,
+  "coreTop": 55.451774444795625,
+  "renderer": {
+    "fps": 7.7,
+    "calls": 1222,
+    "tris": 3664731,
+    "pr": 1,
+    "shadows": true
+  },
+  "musayyarat": 6,
+  "shaderFailures": 0,
+  "errors": [],
+  "consoleErrors": []
+}

@@ -1,0 +1,55 @@
+# إعدادات المعاملات (Hyperparameters) للخوارزميات الأربع.
+
+common:
+  pop_size:              # حجم المجتمع / السرب / النمل
+    small: 40
+    medium: 60
+    large: 80
+
+ga:
+  crossover: drone+segment+sbx
+  p_c: 0.9               # احتمال التقاطع
+  eta_c: 15              # معامل توزيع SBX
+  tournament_k: 3        # حجم البطولة للانتخاب
+  n_elite: 2             # عدد النخبة المنتقلة مباشرةً للجيل التالي
+  p_mut: 0.25            # العدد المتوقع لمراكز الطفرة في مسار كل مسيّرة (احتمال النقطة = p_mut / N)
+  mut_width: 2.5         # عرض انتشار الطفرة على النقاط المجاورة
+  sigma_start: 0.10      # خطوة الطفرة الابتدائية كنسبة من المجال
+  sigma_end: 0.01        # خطوة الطفرة النهائية
+  max_stall: null
+  target_f: null
+
+pso:
+  w: 0.4                 # معامل العطالة (Inertia weight)
+  w_end: null
+  c1: 1.49618            # المعامل المعرفي (Cognitive)
+  c2: 1.49618            # المعامل الاجتماعي (Social)
+  v_max: 0.2             # الحد الأقصى للسرعة كنسبة من المجال
+  topology: global
+  ring_k: 2
+  init_velocity: 0.0
+  r_mode: particle
+  restart_stall: 20      # إعادة تشتيت السرب بعد 20 دورة دون تحسن
+  restart_mode: init
+  restart_sigma: 0.05
+  stall_tol: 0.0001
+  max_stall: null
+  target_f: null
+
+aco:                     # خوارزمية النمل (MMAS) على الشبكة الفراغية
+  alpha: 1.0             # أثر الفيرومون
+  beta: 2.0              # أثر الإرشاد (Heuristic)
+  rho: 0.1               # معامل التبخر
+  lambda_h: 3.0          # معامل تجنب الخطر الحراري
+  climb_weight: 0.0
+  tau_ratio: 100         # نسبة الحد الأعلى للأدنى للفيرومون
+  gb_every: 5            # تعزيز أفضل مسار شامل كل 5 تكرارات
+  step_factor: 4
+  conflict_margin: 5
+  prune: true            # تشذيب المسار بخط النظر الآمن
+  max_stall: null
+  target_f: null
+
+dp:                      # البرمجة الديناميكية (Bellman-Ford) خط أساس للمقارنة
+  prune: true
+  max_sweeps: null

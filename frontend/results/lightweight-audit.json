@@ -1,0 +1,96 @@
+{
+  "errors": [],
+  "beamReloads": [
+    {
+      "algorithm": "GA",
+      "bad": [],
+      "size": [
+        858,
+        598
+      ],
+      "resizes": 1,
+      "pixelCount": 513084,
+      "pixelBudget": 1300000
+    },
+    {
+      "algorithm": "PSO",
+      "bad": [],
+      "size": [
+        858,
+        598
+      ],
+      "resizes": 1,
+      "pixelCount": 513084,
+      "pixelBudget": 1300000
+    },
+    {
+      "algorithm": "ACO",
+      "bad": [],
+      "size": [
+        858,
+        598
+      ],
+      "resizes": 1,
+      "pixelCount": 513084,
+      "pixelBudget": 1300000
+    },
+    {
+      "algorithm": "DP",
+      "bad": [],
+      "size": [
+        858,
+        598
+      ],
+      "resizes": 1,
+      "pixelCount": 513084,
+      "pixelBudget": 1300000
+    },
+    {
+      "algorithm": "GA",
+      "bad": [],
+      "size": [
+        858,
+        598
+      ],
+      "resizes": 1,
+      "pixelCount": 513084,
+      "pixelBudget": 1300000
+    },
+    {
+      "algorithm": "PSO",
+      "bad": [],
+      "size": [
+        858,
+        598
+      ],
+      "resizes": 1,
+      "pixelCount": 513084,
+      "pixelBudget": 1300000
+    }
+  ],
+  "startup": {
+    "loaded": [
+      "heroCanvas"
+    ],
+    "caps": [
+      20,
+      30,
+      30
+    ]
+  },
+  "city": {
+    "triangles": 681439,
+    "trees": 4089,
+    "grass": 6161,
+    "before": 1812785,
+    "pixelBudget": 1300000,
+    "reduction": 0.6240927633447981
+  },
+  "purplePixelFraction": 0.0019068299535745278,
+  "following": {
+    "triangleCasts": 0,
+    "milliseconds": 1.2000000178813934,
+    "finite": true
+  },
+  "passed": true
+}

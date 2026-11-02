@@ -1,0 +1,15 @@
+{
+  "name": "drone-fire-path-planning-ui",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Rendered design checks for the Arabic firefighting simulator",
+  "scripts": {
+    "lint:ui": "node tests/check-ui.cjs",
+    "lint:ui:cli": "lintapple http://127.0.0.1:8000 --ready body[data-app-ready]"
+  },
+  "devDependencies": {
+    "lintapple": "0.1.20",
+    "pngjs": "7.0.0"
+  }
+}

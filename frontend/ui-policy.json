@@ -1,0 +1,27 @@
+{
+  "fonts": ["Akhbar MT", "Segoe UI", "Tahoma", "ui-monospace", "monospace"],
+  "fontSizes": [12, 14, 16, 18, 20, 24, 32, 40, 48, 64],
+  "typeRules": [
+    { "selector": ".step-card h3 .ltr", "sizes": [12] },
+    { "selector": "h1", "sizes": [32, 48] },
+    { "selector": "h2", "sizes": [24, 32] },
+    { "selector": "h3", "sizes": [18, 20] },
+    { "selector": "button, [role=button]", "sizes": [14, 16] }
+  ],
+  "minControlSize": 44,
+  "controlSizeRules": [],
+  "minControlGap": 8,
+  "minControlInset": 8,
+  "controlContainers": ["[data-ui-container]", ".camera-modes", ".viewer-tools", ".lab-config", ".flight-timeline", ".stage-alt"],
+  "minLayoutGap": 8,
+  "bannedCopy": ["unlock your potential", "seamlessly", "game-changing", "بسلاسة تامة", "تجربة لا مثيل لها", "يفتح آفاقًا", "ثورة في عالم", "بكل سهولة ويسر", "ليس مجرد"],
+  "viewports": [{ "width": 390, "height": 844 }, { "width": 1440, "height": 1000 }],
+  "colorSchemes": ["dark"],
+  "exceptions": [
+    {
+      "selector": ".official-liquid-host, .official-liquid-host *, .panel, .panel *, .ledger, .ledger *, .step-card, .step-card *, .alg-card, .alg-card *, .case-card, .case-card *, .glass-b, .glass-b *, .hero .stat-strip *, .hero .alg, .hero .alg *, .workspace-metrics *, .liquid-option, .liquid-option *, .formula, .formula *, .compare-side, .compare-side *, .cmp-row, .cmp-row *, .hazard-fig, .hazard-fig *, .spring-menu, .spring-menu *, .sensitivity, .sensitivity *",
+      "rules": ["text-contrast"],
+      "reason": "These surfaces use gradients or SVG glass refraction, which axe cannot reduce to one CSS background color. tests/glass-contrast.cjs samples the rendered background beneath the text at WCAG AA thresholds. Pixel contrast failures still fail npm run lint:ui; no typography, geometry or accessibility checks are suppressed."
+    }
+  ]
+}

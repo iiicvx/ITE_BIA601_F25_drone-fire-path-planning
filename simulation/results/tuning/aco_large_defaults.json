@@ -1,0 +1,17 @@
+{
+ "pop_size": 80,
+ "alpha": 1.0,
+ "beta": 2.0,
+ "rho": 0.1,
+ "lambda_h": 3.0,
+ "climb_weight": 0.0,
+ "tau_ratio": 100,
+ "gb_every": 5,
+ "step_factor": 4,
+ "conflict_margin": 5,
+ "prune": true,
+ "max_stall": null,
+ "target_f": null,
+ "init.mode": "via",
+ "_budget": 4000
+}

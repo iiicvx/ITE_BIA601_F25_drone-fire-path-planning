@@ -1,0 +1,322 @@
+/* لوحة الجرافيت الحالية، تُحمّل بعد styles.css وglass.css.
+   هياكل البطاقات الداكنة وعناصر التحكم الأفتح والإجراءات المحايدة تتشارك
+   متغيرات دلالية. وتبقى ألوان رسوم الخوارزميات ومفاتيحها مميزة؛ ومسارات المشهد بنفسجية. */
+:root {
+  color-scheme: dark;
+  --bg-primary:#05090b;
+  --bg-secondary:#090e12;
+  --bg-tertiary:#151b21;
+  --surface:#10161b;
+  --surface-subtle:#141b21;
+  --text-primary:#f4f6f8;
+  --text-secondary:#b7c0c8;
+  --text-tertiary:#939fa9;
+  --border:#374047;
+  --border-subtle:#29323a;
+  /* لون إبراز محايد للواجهة؛ ورسوم الخوارزميات تحتفظ بألوان بياناتها. */
+  --accent:#b2bec8;
+  --accent-hover:#d3dce3;
+  --accent-pressed:#e5edf2;
+  --accent-soft:#303840;
+  --accent-selected:#383f46;
+  --accent-border:#64717b;
+  --on-accent:#0b1014;
+  --ok:#6ee3ac;--warn:#ffbf74;--err:#ff8488;
+  --ga-t:#87c2ff;--pso-t:#ffb583;--aco-t:#69e5b5;--dp-t:#bfa5ff;
+  --glass-fill:rgba(15,21,26,.80);
+  --glass-fill-strong:rgba(15,20,25,.95);
+  --glass-border:rgba(142,157,168,.33);
+  --glass-highlight:rgba(212,222,233,.25);
+  --glass-shadow:0 2px 11px rgba(0,0,0,.30),0 12px 36px rgba(0,0,0,.28);
+  --glass-shadow-lg:0 6px 22px rgba(0,0,0,.36),0 18px 52px rgba(0,0,0,.40);
+  --noir-rim:rgba(145,158,169,.40);
+  --noir-card:linear-gradient(138deg,rgba(67,75,84,.68) 0%,rgba(15,20,25,.97) 22%,rgba(8,12,16,.99) 55%,rgba(32,39,46,.97) 89%,rgba(59,67,76,.78) 100%);
+  --noir-card-strong:linear-gradient(135deg,#333b44 0%,#141a21 19%,#080d12 56%,#212a32 93%,#36414b 100%);
+  --noir-inset:linear-gradient(128deg,rgba(60,69,79,.90),rgba(27,34,41,.93) 22%,rgba(13,18,23,.94) 60%,rgba(52,60,68,.83));
+  --noir-selection:linear-gradient(140deg,#505a63,#3b444b 52%,#293139);
+  --noir-edge-shadow:inset 0 1px 0 rgba(227,236,242,.22),inset 1px 0 1px rgba(179,194,207,.09),inset 0 -1px 1px rgba(0,0,0,.7),0 12px 32px rgba(0,0,0,.38);
+}
+html {color-scheme:dark}
+body {
+  background:#05090b;
+  color:var(--text-primary);
+}
+body::before {
+  /* شبكة التصميم المرجعي تكاد لا تُرى، بخلايا نحو 70px. */
+  background:
+    repeating-linear-gradient(0deg,transparent 0 71px,rgba(80,105,119,.125) 72px,transparent 73px),
+    repeating-linear-gradient(90deg,transparent 0 71px,rgba(80,105,119,.125) 72px,transparent 73px);
+  mask-image:none;
+  opacity:.52;
+}
+/* ظل أغمق لنموذج GLB الزخرفي الثابت، دون إعادة تلوين مواده. */
+.ambient-drone-canvas{filter:drop-shadow(0 24px 30px rgba(0,0,0,.62))}
+::selection {background:#607582;color:#fff}
+:focus-visible {outline-color:#d4e2ed}
+.progress span {background:linear-gradient(90deg,#58646e,#cbd7df)}
+
+/* 01 · الترويسة وكبسولة التمرير: جرافيت أسود مجوف، لا لوحة رمادية. */
+.topbar-inner,.stage-alt {color:var(--text-primary)}
+.topbar-inner::before,.stage-alt::before {
+  border:1px solid rgba(114,126,136,.38);
+  background:linear-gradient(145deg,rgba(17,23,28,.86),rgba(3,7,10,.94) 50%,rgba(12,17,22,.84));
+  box-shadow:inset 0 1px 0 rgba(204,216,225,.16),0 8px 26px rgba(0,0,0,.55);
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  backdrop-filter:blur(18px) saturate(125%);
+}
+.topbar-inner::before {background:linear-gradient(145deg,rgba(15,21,26,.9),rgba(3,7,10,.95) 60%,rgba(16,22,28,.9))}
+.topnav a {color:#bbc6ce}
+.topnav a:hover {color:#fff;background:rgba(255,255,255,.07)}
+.topnav a.active {color:#f8fafc;background:#30373e}
+html[data-official-liquid-glass="ready"] .topnav a.active {background:transparent}
+.brand,.menu-btn {color:var(--text-primary)}
+.menu-btn {background:rgba(45,54,63,.56);border-color:var(--border)}
+@media (max-width:1020px){
+  .topnav {background:rgba(9,15,20,.97);border:1px solid rgba(118,132,144,.43);box-shadow:0 15px 45px rgba(0,0,0,.7)}
+  html[data-official-liquid-glass="ready"] .topnav a.active {background:#343c43}
+}
+/* المحرك يرسم طبقات معزولة. يُعاد تلوينها منفصلة لمنع
+   تسرب مصادر الليلكي القديمة عند تهيئة المحرك. */
+.official-liquid-source {
+  background:
+    repeating-linear-gradient(116deg,rgba(187,206,217,.035) 0 1px,transparent 1px 13px),
+    radial-gradient(ellipse 62% 115% at 6% 0%,rgba(127,146,161,.18),transparent 71%),
+    radial-gradient(ellipse 70% 112% at 100% 100%,rgba(88,101,115,.18),transparent 78%),
+    linear-gradient(138deg,rgba(46,53,61,.90),rgba(13,19,25,.92) 42%,rgba(5,9,13,.92) 76%,rgba(31,38,45,.9));
+}
+.official-liquid-chrome {
+  background:linear-gradient(142deg,rgba(215,225,230,.09),transparent 38%,rgba(146,170,186,.05) 78%,rgba(177,196,207,.08));
+  border:1px solid var(--noir-rim);
+  box-shadow:var(--noir-edge-shadow);
+  -webkit-backdrop-filter:blur(4px) saturate(110%);
+  backdrop-filter:blur(4px) saturate(110%);
+}
+.official-liquid-selection {
+  background:linear-gradient(140deg,#55616a,#39424a 55%,#2a323a);
+}
+.official-liquid-selection + .official-liquid-chrome {
+  border:1px solid rgba(170,187,199,.40);
+  background:linear-gradient(140deg,rgba(227,235,242,.18),rgba(102,114,124,.12) 45%,rgba(43,49,57,.16));
+  box-shadow:inset 0 1px 0 rgba(235,242,246,.33),inset 0 -1px 2px rgba(0,0,0,.38),0 2px 15px rgba(0,0,0,.52);
+}
+.stage-alt button.on {color:#fff}
+.seg-lens {
+  border-color:rgba(156,171,184,.47);
+  background:var(--noir-selection);
+  box-shadow:inset 0 1px 0 rgba(230,239,244,.26),inset 0 -1px 0 #1a2127,0 4px 13px rgba(0,0,0,.45);
+}
+.seg-control.lens-off > button[aria-pressed="true"],
+.seg-control.lens-off > button.on,
+.seg-control.lens-off > button[aria-selected="true"],
+html[data-official-liquid-glass="fallback"] .stage-alt button.on {
+  background:#38414a;color:#fff;border-color:#65747e;
+}
+
+/* 02 · إعادة استخدام الجرافيت لأسطح الزجاج الفعلية؛ والمعدن إضاءات حواف
+   لا تعبئة رمادية مسطحة: تبقى البطاقات أغمق من الحقول والأزرار. */
+.glass-a {background:linear-gradient(135deg,rgba(56,66,76,.78),rgba(11,17,23,.74));border:1px solid var(--glass-border);box-shadow:inset 0 1px 0 rgba(216,230,239,.18),var(--glass-shadow)}
+.glass-b {background:linear-gradient(137deg,rgba(36,46,54,.86),rgba(8,14,19,.92) 62%,rgba(34,42,49,.82));border:1px solid var(--glass-border);box-shadow:inset 0 1px 0 var(--glass-highlight),var(--glass-shadow)}
+.glass-c {background:linear-gradient(138deg,rgba(54,63,72,.94),rgba(13,19,24,.97) 42%,rgba(30,39,46,.96));border:1px solid var(--glass-border);box-shadow:inset 0 1px 0 var(--glass-highlight),var(--glass-shadow-lg)}
+.panel,.ledger,.hazard-fig,
+.step-card,#algRail .alg-card,
+#challenge .ledger,.chapter .panel,
+#compare .compare-side,
+#lab .sensitivity,#lab .mission-controls,#mission .mission-controls,
+#challenge .formula,#challenge .terms,#challenge .terms li {
+  background:var(--noir-card)!important;
+  color:var(--text-primary);
+  border:1px solid rgba(122,138,151,.43)!important;
+  box-shadow:var(--noir-edge-shadow)!important;
+}
+/* بطاقات التصميم المرجعي وسطها أسود وحافتها العلوية اليسرى جرافيتية مضاءة. */
+.step-card,#algRail .alg-card,.chapter .panel,#challenge .ledger,
+#compare .compare-side,#lab .mission-controls,#mission .mission-controls,#lab .sensitivity {
+  background:var(--noir-card-strong)!important;
+}
+#algRail .alg-card {border-top:1px solid rgba(156,166,179,.38)!important}
+.step.active .step-card {border-color:rgba(171,187,200,.70)!important}
+#algRail .alg-card.official-glass-card > .official-liquid-source,
+.step-card.official-glass-card > .official-liquid-source,
+#challenge .ledger.official-glass-card > .official-liquid-source,
+.chapter .panel.official-glass-card > .official-liquid-source,
+#compare .compare-side.official-glass-card > .official-liquid-source,
+#lab .sensitivity.official-glass-card > .official-liquid-source,
+#lab .mission-controls.official-glass-card > .official-liquid-source,
+#mission .mission-controls.official-glass-card > .official-liquid-source {
+  background:
+    repeating-linear-gradient(116deg,rgba(180,200,214,.025) 0 1px,transparent 1px 16px),
+    radial-gradient(ellipse 80% 74% at 0 0,rgba(127,142,157,.32),transparent 78%),
+    radial-gradient(ellipse 85% 94% at 100% 100%,rgba(93,108,123,.21),transparent 78%),
+    linear-gradient(138deg,rgba(40,49,58,.92) 0%,rgba(12,17,23,.97) 36%,rgba(6,10,15,.97) 63%,rgba(35,43,51,.94) 100%);
+}
+#algRail .alg-card.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+.step-card.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+#challenge .ledger.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+.chapter .panel.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+#compare .compare-side.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+#lab .sensitivity.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+#lab .mission-controls.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+#mission .mission-controls.official-glass-card > .official-liquid-source + .official-liquid-chrome {
+  background:linear-gradient(138deg,rgba(215,229,237,.075),transparent 38%,rgba(169,191,206,.03) 78%,rgba(255,255,255,.05));
+  border:1px solid rgba(149,165,177,.48);
+  box-shadow:inset 0 1px 0 rgba(217,231,242,.28),inset 0 -1px 1px rgba(0,0,0,.65),0 14px 34px rgba(0,0,0,.48);
+}
+/* حقول المقاييس مميزة عن هياكل البطاقات الرئيسية، كما في الصورة المرجعية. */
+#algRail .alg-card .stat,
+#challenge .formula,#challenge .terms li,
+#compare .cmp-row,#compare #cmpCity {
+  background:var(--noir-inset)!important;
+  border:1px solid rgba(125,142,153,.39)!important;
+  color:#e7edf2!important;
+  box-shadow:inset 0 1px 0 rgba(205,222,232,.17),inset 0 -1px 2px rgba(0,0,0,.49),0 5px 14px rgba(0,0,0,.30)!important;
+}
+#challenge .terms {background:transparent!important;border:0!important;box-shadow:none!important}
+#challenge .terms li {padding:9px 12px;margin:6px 0}
+#challenge .formula {color:#f1f5f7!important}
+#compare .cmp-row {transition:border-color .2s,box-shadow .2s}
+#compare .cmp-row:hover {border-color:rgba(188,203,215,.72)!important}
+
+/* 03 · الأزرار: يستخدم التصميم المرجعي فضيًا وجرافيتيًا باهتين، لا ليلكيًا.
+   زر الدعوة الرئيسي = فضي مصقول، والثانوي = زجاج داكن مظلل. */
+.btn.primary,.btn.primary.official-cta-btn:not(.official-liquid-host) {
+  color:#0b1014;
+  border:1px solid rgba(192,205,215,.72);
+  background:linear-gradient(145deg,#e1e9ee 0%,#b9c5ce 44%,#8998a4 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.84),inset 0 -1px 1px rgba(26,35,42,.4),0 9px 25px rgba(0,0,0,.45);
+}
+.btn.primary:hover {box-shadow:inset 0 1px 0 rgba(255,255,255,.94),0 8px 27px rgba(116,136,152,.29)}
+.btn.primary .btn-sheen {background:linear-gradient(115deg,rgba(255,255,255,.4),rgba(255,255,255,.04) 47%,transparent 65%)}
+.btn.ghost {background:linear-gradient(140deg,rgba(53,62,72,.85),rgba(13,19,25,.93) 57%,rgba(35,43,52,.85));color:#f2f5f7;border-color:rgba(144,162,175,.52);box-shadow:inset 0 1px 0 rgba(230,238,244,.24),0 7px 17px rgba(0,0,0,.35)}
+.btn.quiet {color:#d2e0eb}
+.btn.quiet:hover {background:rgba(118,135,149,.16)}
+.btn.danger {background:linear-gradient(150deg,#b65458,#6e252c);color:#fff}
+.btn:disabled {opacity:.47}
+.gbtn-bg {background:linear-gradient(145deg,#e0e7ec,#83929f)}
+.btn.primary.official-cta-btn.official-liquid-cta-primary-host > .official-liquid-source {
+  background:radial-gradient(ellipse 69% 120% at 5% 0%,rgba(255,255,255,.55),transparent 78%),linear-gradient(145deg,#dce6eb 0%,#b2c1ca 47%,#83929c 100%);
+}
+.btn.primary.official-cta-btn.official-liquid-cta-primary-host > .official-liquid-source + .official-liquid-chrome {
+  border:1px solid rgba(192,205,215,.67);
+  background:linear-gradient(125deg,rgba(255,255,255,.32),transparent 42%,rgba(19,31,39,.12));
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.79),inset 0 -1px 2px rgba(31,39,45,.49),0 12px 27px rgba(0,0,0,.43);
+}
+.btn.primary.official-cta-btn.official-liquid-cta-primary-host {color:#091015}
+.btn.official-cta-btn.primary .hero-cta-label {color:#0a1014;text-shadow:none}
+.hero-cta .btn.ghost:not(.official-liquid-host) {
+  background:linear-gradient(142deg,rgba(50,60,70,.85),rgba(12,17,23,.93) 72%);
+  border:1px solid rgba(143,161,173,.52);color:#f2f6f8;
+  box-shadow:inset 0 1px 0 rgba(219,232,239,.23),0 10px 22px rgba(0,0,0,.36);
+}
+.hero-cta .btn.ghost .hero-cta-label,.hero-cta .btn.ghost.official-liquid-cta-secondary-host {color:#f6f8fa}
+.hero-cta .btn.ghost.official-liquid-cta-secondary-host > .official-liquid-source {
+  background:radial-gradient(ellipse 74% 83% at 5% 0%,rgba(152,173,189,.29),transparent 76%),linear-gradient(143deg,#313c46,#111820 55%,#29343d);
+}
+.hero-cta .btn.ghost.official-liquid-cta-secondary-host > .official-liquid-source + .official-liquid-chrome {
+  background:linear-gradient(135deg,rgba(225,236,243,.16),transparent 38%,rgba(115,136,150,.075));
+  border:1px solid rgba(145,164,177,.48);
+  box-shadow:inset 0 1px 0 rgba(221,233,240,.32),0 12px 30px rgba(0,0,0,.4);
+}
+.rail-nav button {
+  color:#e9edf2;
+  background:linear-gradient(140deg,#5b646c,#343c44 60%,#242b31);
+  border-color:rgba(161,174,185,.56);
+  box-shadow:inset 0 1px 0 rgba(240,245,247,.34),inset 0 -1px 1px rgba(0,0,0,.5),0 4px 13px rgba(0,0,0,.37);
+}
+.rail-nav button:hover {background:linear-gradient(140deg,#6c7881,#3c4751)}
+
+/* تنقل الخوارزميات ومفاتيحها تحتفظ بألوان بياناتها. */
+.hero .alg-key .alg {
+  color:#f8fafb;
+  background:linear-gradient(140deg,color-mix(in srgb,var(--c) 17%,#303a43),rgba(9,15,20,.91) 68%);
+  border:1px solid color-mix(in srgb,var(--c) 55%,#72808c);
+  box-shadow:inset 0 1px 0 rgba(236,244,250,.18),inset 0 -1px 1px rgba(0,0,0,.43),0 5px 17px rgba(0,0,0,.4),0 0 13px color-mix(in srgb,var(--c) 15%,transparent);
+}
+.hero .alg-key .alg::before {background:linear-gradient(180deg,rgba(255,255,255,.15),transparent)}
+.hero .alg-key .alg:hover {box-shadow:inset 0 1px 0 rgba(237,246,249,.3),0 9px 25px rgba(0,0,0,.45),0 0 19px color-mix(in srgb,var(--c) 29%,transparent)}
+.alg-t-ga {color:var(--ga-t)}.alg-t-pso {color:var(--pso-t)}.alg-t-aco {color:var(--aco-t)}.alg-t-dp {color:var(--dp-t)}
+/* الإبراز العددي في جداول الملخص يعني حالة نجاح الخوارزمية. */
+td.best {color:var(--aco-t)}
+
+/* 05 · حدود المشهد والرسم: لا يُعكس عرض المشهد ثلاثي الأبعاد. */
+.hero-stage,.scene-frame {background:#05090c;border:1px solid rgba(76,91,103,.40);box-shadow:0 12px 38px rgba(0,0,0,.35)}
+.hero-copy .lede,.hero-copy .eyebrow {color:#dbe2e7}
+.scene-hud span {background:rgba(9,14,19,.76);border-color:rgba(142,159,170,.38);box-shadow:inset 0 1px 0 rgba(225,235,241,.15),0 4px 16px rgba(0,0,0,.5)}
+.hero .stat-strip>div,.hero .stat-strip>div+div {
+  background:linear-gradient(145deg,rgba(68,79,89,.45),rgba(12,19,25,.66) 72%,rgba(52,64,73,.36));
+  border:1px solid rgba(130,147,158,.36);
+  box-shadow:inset 0 1px 0 rgba(214,224,231,.19),0 7px 22px rgba(0,0,0,.34);
+}
+.eyebrow,.kicker {color:var(--text-secondary)}
+.eyebrow::after,.kicker::after {background:#56616b}
+.scroll-hint,.caption {color:var(--text-tertiary)}
+.scroll-hint span {background:#33414c}
+.scroll-hint span::after {background:#a9bdca}
+.constraints b,.step-card h3 .ltr {color:#d8e5ed}
+.constraints li,.terms li {color:var(--text-secondary)}
+.terms b {color:#e5edf2}
+.hazard-fig svg text {fill:#c8d3db}
+
+/* 06 · الحقول والتسميات ومجموعات النماذج: وضوح أعلى من خلفيات البطاقات. */
+.toolbar.glass-b {
+  background:var(--noir-card);
+  border:1px solid rgba(126,141,153,.42);
+  box-shadow:var(--noir-edge-shadow);
+}
+select,input[type=number] {
+  background:linear-gradient(135deg,#253039,#121920 70%,#252d35);
+  color:#edf3f7;
+  border:1px solid rgba(129,146,158,.57);
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.35),inset 0 1px 0 rgba(215,226,234,.08);
+}
+select option {background:#111920;color:#f5f7f9}
+input::placeholder {color:#a3afb9}
+select:focus-visible,input[type=number]:focus-visible {border-color:#bdcad3;outline-color:#dce6ed}
+input[type=range] {accent-color:#acbeca}
+.telemetry div+div {border-color:var(--border-subtle)}
+.telemetry dt {color:var(--text-tertiary)}
+.telemetry dd {color:#edf2f6}
+.meter,.cmp-row .bar,#costBars .track,.sens-row .track {background:#202932;border-color:#3a4651}
+.meter span {background:linear-gradient(90deg,#768b9b,#d0dce4)}
+#labStatus {color:#c6d2db}
+
+/* 07 · الرسوم والإحصاءات والنتائج والبيانات الحساسة على قواعد محايدة داكنة؛
+   وتبقى السلاسل: GA أزرق، وPSO كهرماني، وACO نعناعي، وDP بنفسجي. */
+.tabs {border:1px solid rgba(103,118,130,.47);background:linear-gradient(140deg,#141c23,#0b1116);box-shadow:inset 0 1px 0 rgba(222,233,242,.10)}
+.tabs button,.stage-alt button {color:#b9c5ce}
+.tabs button[aria-selected=true],.stage-alt button.on {color:#fafcff}
+#convChart text {fill:#aebdc8}
+#convChart line {stroke:#35404a}
+.legend {color:#d1d9e0}
+.table-wrap {scrollbar-color:#55616b #151c22}
+th,td {border-color:#323d47}
+th {color:#a7b5c0}
+tr:hover td {background:rgba(142,164,177,.055)}
+.sens-row,.sensitivity summary {color:var(--text-secondary)}
+#costBars .cb {color:#d3dee5}
+/* ملحقات الحركة وشريط التمرير */
+.rail {scrollbar-color:#57636d #11191f}
+.rail-nav button:focus-visible,button:focus-visible,select:focus-visible {outline:2px solid #c7d9e6;outline-offset:3px}
+
+/* 08 · التذييل والبدائل المتداخلة يجب ألا تومض بالأبيض بعد التحميل أو عندما
+   يطلب نظام التشغيل تقليل الشفافية. */
+.footer {background:rgba(7,12,16,.92);color:var(--text-secondary);border-top:1px solid #2a333c}
+.footer a {color:#d2e1ec}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .glass-a,.glass-b,.glass-c {background:#172027}
+  .seg-lens {background:#3b454e}
+}
+@media (prefers-reduced-transparency:reduce) {
+  .glass-a,.glass-b,.glass-c,.official-liquid-source,.official-liquid-chrome {background:#182128!important;border-color:#53616c!important;box-shadow:none!important}
+  .topbar-inner::before,.stage-alt::before {background:#141d24!important}
+  .btn.primary.official-cta-btn.official-liquid-host,.btn.primary.official-cta-btn.official-liquid-cta-primary-host {background:#aebdc8!important;color:#0a0f13!important}
+  .hero-cta .btn.ghost.official-liquid-cta-secondary-host {background:#263139!important;color:#f7f9fa!important}
+  .step-card,#algRail .alg-card,.panel,.ledger {background:#151d23!important;color:#f4f6f8!important}
+  #algRail .alg-card {background:#141a20!important}
+  #algRail .alg-card .stat {background:#27323c!important}
+}
+@media(forced-colors:active){
+  /* ألوان نظام المنصة مطلوبة لإمكانية الوصول عالية التباين. */
+  .panel,.ledger,.step-card,#algRail .alg-card {background:Canvas!important;color:CanvasText!important;border-color:ButtonBorder!important}
+  select,input,.btn {forced-color-adjust:auto}
+  .btn.official-cta-btn.primary .hero-cta-label {color:HighlightText!important}
+}

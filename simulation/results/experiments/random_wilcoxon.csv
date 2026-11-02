@@ -1,0 +1,19 @@
+size,first,second,n,n_nonzero,median_diff,wins_first,wins_second,ties,statistic,p,A12,p_holm,verdict
+small,GA,PSO,10,10,-0.000385146,6,4,0,25,0.845703,0.54,0.845703,no significant difference
+small,GA,ACO,10,10,-0.0261681,8,2,0,5,0.0195312,0.65,0.0585938,no significant difference
+small,GA,DP,10,10,-0.0794923,10,0,0,0,0.00195312,0.9,0.0117188,GA better
+small,PSO,ACO,10,10,-0.0192655,9,1,0,5,0.0195312,0.67,0.0585938,no significant difference
+small,PSO,DP,10,10,-0.0765563,10,0,0,0,0.00195312,0.89,0.0117188,PSO better
+small,ACO,DP,10,10,-0.046906,10,0,0,0,0.00195312,0.76,0.0117188,ACO better
+medium,GA,PSO,10,10,-0.156646,9,1,0,9,0.0644531,0.81,0.128906,no significant difference
+medium,GA,ACO,10,10,0.0715047,0,10,0,0,0.00195312,0.16,0.0117188,ACO better
+medium,GA,DP,10,10,-0.00609184,5,5,0,26,0.921875,0.51,0.921875,no significant difference
+medium,PSO,ACO,10,10,0.218099,0,10,0,0,0.00195312,0.01,0.0117188,ACO better
+medium,PSO,DP,10,10,0.173587,0,10,0,0,0.00195312,0.06,0.0117188,DP better
+medium,ACO,DP,10,10,-0.0515304,10,0,0,0,0.00195312,0.89,0.0117188,ACO better
+large,GA,PSO,10,10,-0.554894,8,2,0,7,0.0371094,0.79,0.0371094,GA better
+large,GA,ACO,10,10,0.591435,0,10,0,0,0.00195312,0,0.0117188,ACO better
+large,GA,DP,10,10,0.522201,0,10,0,0,0.00195312,0,0.0117188,DP better
+large,PSO,ACO,10,10,1.06344,0,10,0,0,0.00195312,0,0.0117188,ACO better
+large,PSO,DP,10,10,1.00117,0,10,0,0,0.00195312,0,0.0117188,DP better
+large,ACO,DP,10,10,-0.0683081,10,0,0,0,0.00195312,0.94,0.0117188,ACO better

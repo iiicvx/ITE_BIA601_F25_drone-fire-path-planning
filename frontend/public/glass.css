@@ -1,0 +1,391 @@
+/* طبقات بصرية أساسية وبدائل لإمكانية الوصول؛ ويغير theme-noir.css
+   لوحة الألوان. يتولى glass.js عدسات تبويبات النتائج وأزرار الزجاج القديمة،
+   ويدمج official-liquid-glass.js المحرك الأصلي للتنقل
+   وبطاقات الشرح والإجراءات الرئيسية، مع طبقات نص حادة منفصلة. */
+:root{
+  --glass-fill:rgba(255,255,255,.78);
+  --glass-fill-strong:rgba(255,255,255,.92);
+  --glass-border:rgba(90,90,100,.2);
+  --glass-highlight:rgba(255,255,255,.95);
+  --glass-shadow:0 2px 8px rgba(0,0,0,.045),0 10px 30px rgba(0,0,0,.055);
+  --glass-shadow-lg:0 4px 14px rgba(0,0,0,.06),0 18px 50px rgba(0,0,0,.09);
+  --glass-blur-a:6px;
+  --glass-blur-b:14px;
+  --glass-spring:cubic-bezier(.32,.72,0,1);
+}
+
+/* ── المادة B · التنقل وأشرطة الأدوات (CSS فقط: المناطق كاملة العرض بلا مرشحات) ── */
+.glass-b{
+  background:linear-gradient(180deg,rgba(255,255,255,.85),var(--glass-fill));
+  -webkit-backdrop-filter:blur(var(--glass-blur-b)) saturate(1.4);
+  backdrop-filter:blur(var(--glass-blur-b)) saturate(1.4);
+  border:1px solid var(--glass-border);
+  box-shadow:inset 0 1px 0 var(--glass-highlight),var(--glass-shadow);
+}
+
+/* ── المادة A · رقائق عائمة فوق محتوى غني ── */
+.glass-a{
+  background:linear-gradient(135deg,rgba(255,255,255,.66),rgba(255,255,255,.4));
+  -webkit-backdrop-filter:blur(var(--glass-blur-a)) saturate(1.4);
+  backdrop-filter:blur(var(--glass-blur-a)) saturate(1.4);
+  border:1px solid var(--glass-border);
+  box-shadow:inset 0 1px 0 var(--glass-highlight),var(--glass-shadow);
+}
+
+/* ── المادة C · لوحات مؤقتة مرتفعة ── */
+.glass-c{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),var(--glass-fill-strong));
+  -webkit-backdrop-filter:blur(20px) saturate(1.3);
+  backdrop-filter:blur(20px) saturate(1.3);
+  border:1px solid var(--glass-border);
+  box-shadow:inset 0 1px 0 var(--glass-highlight),var(--glass-shadow-lg);
+}
+
+/* ── كبسولتا التنقل تستخدمان محرك LiquidGlassEngine الأصلي الحقيقي.
+   يكسر المحرك طبقة DOM المرسومة بينما يبقى نص الواجهة خارج
+   الشجرة المرشحة. والطبقة البصرية منفصلة عن بديل CSS.
+   ولا يلتقط المحرك الرسمي كل DOM الصفحة الخارجي تلقائيًا. */
+.topbar-inner,.stage-alt{
+  position:relative;isolation:isolate;
+  background:transparent!important;border-color:transparent!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  box-shadow:none!important;
+}
+/* ظاهر أثناء تحميل الوحدة الرسمية أو عند تعذر جلبها. */
+.topbar-inner::before,.stage-alt::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  border:1px solid rgba(116,91,161,.28);border-radius:inherit;
+  background:linear-gradient(142deg,rgba(255,255,255,.85),rgba(248,241,255,.66) 48%,rgba(255,255,255,.72));
+  -webkit-backdrop-filter:blur(9px) saturate(1.3);backdrop-filter:blur(9px) saturate(1.3);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.97),0 12px 38px rgba(74,53,105,.12),0 2px 9px rgba(74,53,105,.06);
+}
+.stage-alt::before{background:linear-gradient(142deg,rgba(255,255,255,.95),rgba(246,238,255,.88) 55%,rgba(255,255,255,.92))}
+/* تشارك سطح البديل بين الترويسة وشريط S1–S6. */
+.topbar-inner::before{background:linear-gradient(142deg,rgba(255,255,255,.95),rgba(246,238,255,.88) 55%,rgba(255,255,255,.92))}
+.official-liquid-host::before{opacity:0}
+.topbar-inner > :not(.official-liquid-source):not(.official-liquid-defs):not(.official-liquid-chrome),
+.stage-alt > button{position:relative;z-index:5}
+.official-liquid-source,.official-liquid-chrome{
+  position:absolute!important;inset:0;pointer-events:none;display:block;
+  overflow:hidden;border-radius:inherit;
+}
+/* المحرك الأصلي يضع الظل من اليسار، حتى في الاتجاه من اليمين إلى اليسار. */
+.official-liquid-chrome{inset:auto!important;top:0!important;left:0!important;right:auto!important;bottom:auto!important}
+.official-liquid-source{z-index:1;
+  background:
+    repeating-linear-gradient(116deg,rgba(125,89,198,.08) 0 1px,rgba(255,255,255,0) 1px 11px),
+    radial-gradient(ellipse 60% 120% at 18% 0%,rgba(255,255,255,.92) 10%,transparent 75%),
+    radial-gradient(ellipse 80% 130% at 93% 100%,rgba(170,135,222,.37) 0%,rgba(244,235,255,.24) 70%,transparent 100%),
+    linear-gradient(132deg,rgba(255,255,255,.64),rgba(235,215,253,.49) 56%,rgba(255,255,255,.7));
+}
+.official-liquid-chrome{z-index:2;
+  background:linear-gradient(135deg,rgba(255,255,255,.27),rgba(255,255,255,0) 36%,rgba(225,204,253,.11) 73%,rgba(255,255,255,.19));
+  border:1px solid rgba(122,98,158,.28);
+  box-shadow:
+    inset 0 1.5px 0 rgba(255,255,255,.96),
+    inset 0 -2px 2px rgba(123,86,186,.15),
+    inset 2px 0 2px rgba(255,255,255,.65),
+    0 12px 36px rgba(74,53,105,.14),0 2px 7px rgba(74,53,105,.07);
+  -webkit-backdrop-filter:blur(3px) saturate(1.16);backdrop-filter:blur(3px) saturate(1.16);
+}
+.official-liquid-defs{position:absolute;inset:0;width:0;height:0;overflow:hidden;pointer-events:none}
+/* مصدر وطبقة علوية خاصان بعدسة الاختيار الرسمية المتحركة. */
+.official-liquid-selection{z-index:3!important;
+  background:
+    repeating-linear-gradient(110deg,rgba(107,64,180,.11) 0 1px,transparent 1px 7px),
+    linear-gradient(135deg,rgba(238,218,255,.82),rgba(191,155,240,.48) 55%,rgba(252,249,255,.75));
+}
+.official-liquid-selection + .official-liquid-chrome{z-index:4;
+  border:1px solid rgba(124,77,196,.43);
+  background:linear-gradient(132deg,rgba(255,255,255,.52),rgba(221,196,251,.38) 55%,rgba(255,255,255,.42));
+  box-shadow:inset 0 1.5px 1px rgba(255,255,255,.95),inset 0 -1.5px 2px rgba(116,81,194,.16),0 2px 12px rgba(115,81,201,.2);
+  -webkit-backdrop-filter:blur(1.2px);backdrop-filter:blur(1.2px);
+}
+.stage-alt button{z-index:5!important;position:relative;border-radius:999px}
+.stage-alt button.on{color:#5c3aa8;font-weight:700}
+/* روابط الترويسة النشطة تستخدم بصريات الاختيار المتحركة نفسها في S1–S6.
+   طبقة النص وحدها تبقى في المقدمة؛ والزجاج المختار يقع تحتها. */
+.topbar-inner.official-selection-hidden > .official-liquid-selection,
+.topbar-inner.official-selection-hidden > .official-liquid-selection + .official-liquid-chrome{opacity:0!important;visibility:hidden!important}
+@media (max-width:1020px){
+  /* تنتقل الروابط إلى قائمة منفصلة: يُخفى اختيار كبسولة الترويسة هناك.
+     ويبقى التمييز الأصلي للرابط النشط مقروءًا داخل القائمة المنسدلة. */
+  .topbar-inner > .official-liquid-selection,
+  .topbar-inner > .official-liquid-selection + .official-liquid-chrome{display:none!important}
+  html[data-official-liquid-glass="ready"] .topnav a.active{background:var(--accent-soft)}
+}
+/* بطاقات الشرح تتشارك طبقات المصدر والإطار في محرك التنقل. */
+.step-card,
+#algRail .alg-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border-radius:calc(var(--radius-card) + 2px);
+  background:linear-gradient(143deg,rgba(255,255,255,.98),rgba(250,245,255,.86) 58%,rgba(255,255,255,.95));
+  border:1px solid rgba(122,98,158,.24);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 16px 44px rgba(74,53,105,.12),0 4px 10px rgba(74,53,105,.06);
+}
+/* إبقاء النص المحمي التباين فوق المصدر الكاسر والإطار.
+   الطبقة البصرية المرسومة المخصصة وحدها تخضع لمرشح الإزاحة. */
+.official-glass-card > :not(.official-liquid-source):not(.official-liquid-chrome):not(.official-liquid-defs){
+  position:relative;
+  z-index:5;
+}
+.official-glass-card > .official-liquid-source,
+.official-glass-card > .official-liquid-chrome{
+  border-radius:inherit;
+}
+.official-glass-card > .official-liquid-source{
+  background:
+    repeating-linear-gradient(116deg,rgba(125,89,198,.05) 0 1px,transparent 1px 13px),
+    radial-gradient(ellipse 75% 85% at 9% 0%,rgba(255,255,255,.97),transparent 82%),
+    radial-gradient(ellipse 90% 95% at 100% 100%,rgba(175,143,226,.24),transparent 76%),
+    linear-gradient(140deg,rgba(255,255,255,.93),rgba(240,226,253,.62) 52%,rgba(255,255,255,.92));
+}
+.official-glass-card > .official-liquid-source + .official-liquid-chrome{
+  background:linear-gradient(135deg,rgba(255,255,255,.34),transparent 38%,rgba(225,204,253,.09) 80%,rgba(255,255,255,.26));
+  border-color:rgba(122,98,158,.25);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1.5px 2px rgba(123,86,186,.08),0 16px 42px rgba(74,53,105,.10);
+}
+/* بطاقات شرح الخوارزميات: خزامية فاتحة عمدًا، لا رمادية محايدة.
+   الصبغة تخص العنصر المضيف ومصدر المحرك الرسمي المرسوم معًا،
+   فتبقى ظاهرة أثناء التحميل وبعد الترشيح وفي بديل CDN. */
+#algRail .alg-card{
+  border-top:0!important;
+  background:linear-gradient(140deg,#fbf8ff 0%,#eee3fb 54%,#f6efff 100%);
+  border-color:rgba(138,99,194,.34);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),0 14px 34px rgba(103,68,162,.12);
+}
+#algRail .alg-card.official-glass-card::after{display:none!important;content:none!important}
+#algRail .alg-card.official-glass-card > .official-liquid-source{
+  background:
+    repeating-linear-gradient(116deg,rgba(145,91,219,.052) 0 1px,transparent 1px 14px),
+    radial-gradient(ellipse 78% 84% at 8% 0%,rgba(255,255,255,.92),transparent 80%),
+    radial-gradient(ellipse 95% 110% at 100% 100%,rgba(190,155,236,.35),transparent 79%),
+    linear-gradient(140deg,rgba(251,244,255,.98),rgba(225,202,250,.87) 52%,rgba(245,232,255,.96));
+}
+#algRail .alg-card.official-glass-card > .official-liquid-source + .official-liquid-chrome{
+  background:linear-gradient(135deg,rgba(255,255,255,.34),transparent 42%,rgba(218,185,253,.12) 80%,rgba(255,255,255,.24));
+  border-color:rgba(143,101,197,.32);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.98),inset 0 -1px 2px rgba(123,86,186,.08),0 14px 34px rgba(103,68,162,.11);
+}
+/* أزرار الدعوة في الواجهة الرئيسية تستخدم المحرك الرسمي. يجب أن يكون نص الواجهة
+   عنصرًا ابنًا موضوعًا فوق كل الطبقات البصرية، لا نصًا مجردًا داخل الرابط. */
+.hero-cta .btn.official-liquid-host,
+.btn.official-cta-btn.official-liquid-host{
+  position:relative;isolation:isolate;overflow:hidden;border-radius:999px;
+  padding:14px 24px;min-height:52px;border-color:transparent!important;
+  background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+.hero-cta .btn.official-liquid-host > :not(.official-liquid-source):not(.official-liquid-chrome):not(.official-liquid-defs),
+.btn.official-cta-btn.official-liquid-host > :not(.official-liquid-source):not(.official-liquid-chrome):not(.official-liquid-defs){position:relative;z-index:5}
+.hero-cta .btn.official-liquid-host > .hero-cta-label,
+.hero-cta .btn .hero-cta-label,
+.btn.official-cta-btn .hero-cta-label{
+  position:relative;z-index:10;display:inline-block;isolation:isolate;
+  font:inherit;line-height:1.45;text-align:center;pointer-events:none;
+  text-shadow:none;
+}
+/* مطابقة ألوان النص الظاهرة مع طبقات الزجاج الخاصة بكل منها. */
+.btn.official-cta-btn.primary .hero-cta-label{color:#fff;text-shadow:0 1px 2px rgba(62,36,123,.30)}
+.hero-cta .btn.ghost .hero-cta-label{color:#42256f;text-shadow:none}
+/* اللمعان الزخرفي القديم يقع لولا ذلك أمام العدسة الرسمية. */
+.hero-cta .btn.official-liquid-host > .btn-sheen,
+.btn.official-cta-btn.official-liquid-host > .btn-sheen{display:none}
+
+.hero-cta .btn.official-liquid-host > .official-liquid-source,.hero-cta .btn.official-liquid-host > .official-liquid-chrome,
+.btn.official-cta-btn.official-liquid-host > .official-liquid-source,.btn.official-cta-btn.official-liquid-host > .official-liquid-chrome{border-radius:inherit}
+.btn.primary.official-cta-btn.official-liquid-cta-primary-host > .official-liquid-source{
+  background:
+    repeating-linear-gradient(110deg,rgba(255,255,255,.08) 0 1px,transparent 1px 10px),
+    radial-gradient(ellipse 60% 120% at 16% 0%,rgba(255,255,255,.52) 8%,transparent 74%),
+    radial-gradient(ellipse 70% 120% at 100% 100%,rgba(213,186,255,.35) 0%,transparent 76%),
+    linear-gradient(136deg,rgba(146,109,222,.93),rgba(115,81,201,.88) 58%,rgba(95,63,179,.92));
+}
+.btn.primary.official-cta-btn.official-liquid-cta-primary-host > .official-liquid-source + .official-liquid-chrome{
+  background:linear-gradient(135deg,rgba(255,255,255,.32),transparent 36%,rgba(225,204,253,.14) 74%,rgba(255,255,255,.20));
+  border:1px solid rgba(110,77,193,.44);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.88),inset 0 -1.5px 2px rgba(69,38,138,.22),0 12px 28px rgba(115,81,201,.28),0 3px 8px rgba(74,53,105,.09);
+}
+.btn.primary.official-cta-btn.official-liquid-cta-primary-host{color:#fff}
+.hero-cta .btn.ghost.official-liquid-cta-secondary-host > .official-liquid-source{
+  background:
+    repeating-linear-gradient(116deg,rgba(139,99,200,.055) 0 1px,transparent 1px 13px),
+    radial-gradient(ellipse 75% 85% at 9% 0%,rgba(255,255,255,.96),transparent 82%),
+    radial-gradient(ellipse 90% 95% at 100% 100%,rgba(181,143,231,.30),transparent 78%),
+    linear-gradient(140deg,rgba(250,245,255,.98),rgba(226,206,249,.96) 52%,rgba(246,235,255,.98));
+}
+.hero-cta .btn.ghost.official-liquid-cta-secondary-host > .official-liquid-source + .official-liquid-chrome{
+  background:linear-gradient(135deg,rgba(255,255,255,.34),transparent 40%,rgba(224,194,253,.16) 80%,rgba(255,255,255,.24));
+  border:1px solid rgba(130,88,184,.36);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.97),inset 0 -1px 2px rgba(123,86,186,.09),0 12px 30px rgba(103,68,162,.14);
+}
+.hero-cta .btn.ghost.official-liquid-cta-secondary-host{color:#42256f}
+/* كل أزرار الدعوة البنفسجية تتشارك البديل نفسه تمامًا عند تعذر الوحدة الرسمية
+   أو بطئها، فلا يصبح زرا المختبر والمهمة مسطحين أو رماديين أبدًا. */
+.btn.primary.official-cta-btn:not(.official-liquid-host){
+  padding:14px 24px;min-height:52px;border-radius:999px;color:#fff;
+  background:linear-gradient(136deg,#926dde,#7351c9 58%,#5f3fb3);
+  border:1px solid rgba(110,77,193,.44);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.55),inset 0 -1.5px 2px rgba(69,38,138,.22),0 12px 28px rgba(115,81,201,.28),0 3px 8px rgba(74,53,105,.09);
+}
+.btn.official-cta-btn:disabled{opacity:.65;cursor:not-allowed;}
+/* يجب أن يبقى بديل الزجاج ومظهر وقت التحميل خزاميين أيضًا. */
+.hero-cta .btn.ghost:not(.official-liquid-host){
+  background:linear-gradient(145deg,rgba(252,247,255,.96),rgba(225,203,251,.91));
+  border-color:rgba(169,123,221,.58);color:#42256f;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 8px 22px rgba(114,77,186,.17);
+}
+@media (prefers-reduced-transparency:reduce){
+  .hero-cta .btn.official-liquid-host,
+.btn.official-cta-btn.official-liquid-host{background:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.06)!important}
+  .btn.primary.official-cta-btn.official-liquid-cta-primary-host{background:linear-gradient(180deg,#7e5bd8,#6b49c9)!important;color:#fff}
+  .hero-cta .btn.ghost.official-liquid-cta-secondary-host{background:#efe2ff!important;color:#42256f}
+}
+
+@media (prefers-reduced-transparency:reduce){
+  .step-card{background:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.06)!important}
+  #algRail .alg-card{background:#f2e8fd!important;box-shadow:0 2px 8px rgba(103,68,162,.09)!important}
+}
+@media (forced-colors:active){
+  .hero-cta .btn .hero-cta-label,
+.btn.official-cta-btn .hero-cta-label{color:ButtonText!important;text-shadow:none}
+  .btn.primary.official-cta-btn .hero-cta-label{color:HighlightText!important}
+  .step-card,#algRail .alg-card{background:Canvas!important;color:CanvasText;border-color:ButtonBorder;box-shadow:none!important}
+  #algRail .alg-card.official-glass-card::after{display:none}
+}
+
+/* عدسة .seg-lens القديمة المخصصة تُستخدم فقط لتبويبات النتائج المنفصلة. */
+.seg-control{position:relative;isolation:isolate}
+.seg-control > button{position:relative;z-index:1;background:transparent}
+.seg-lens{
+  position:absolute;z-index:0;left:0;top:0;pointer-events:none;
+  border-radius:999px;border:1px solid var(--glass-border);
+  background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(241,235,253,.6) 45%,rgba(255,255,255,.75));
+  box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(90,90,100,.12),0 2px 10px rgba(115,81,201,.14);
+  transition:transform .24s var(--glass-spring),width .24s var(--glass-spring),height .24s var(--glass-spring),opacity .2s ease-out;
+}
+.seg-control.lens-off .seg-lens{display:none}
+.seg-control.lens-off > button[aria-pressed="true"],.seg-control.lens-off > button.on,.seg-control.lens-off > button[aria-selected="true"]{background:var(--accent-soft);border-color:var(--border)}
+html[data-official-liquid-glass="fallback"] .stage-alt button.on{background:var(--accent-soft);border-color:var(--accent-border)}
+/* ── أزرار زجاج كاسرة ثابتة ([data-lens]) ── */
+[data-lens]{position:relative}
+[data-lens] > *{position:relative;z-index:1}
+
+/* ── لغة الحركة: ضغط ملموس واختيار نابضي ── */
+.pressable{transition:transform .12s var(--ease-out),background-color .15s var(--ease-out),border-color .15s var(--ease-out)}
+.pressable:active{transform:scale(.96)}
+
+/* ── التوافق: دون backdrop-filter -> لون مصمت هادئ ── */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .glass-a,.glass-b{background:rgba(255,255,255,.94);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .glass-c{background:#fff}
+  .seg-lens{background:rgba(115,81,201,.12)}
+}
+
+/* ── شفافية مخفضة: معتم ودون انكسار ── */
+@media (prefers-reduced-transparency:reduce){
+  .glass-a,.glass-b,.glass-c,.official-liquid-source,.official-liquid-chrome{background:#fff;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none;border-color:var(--border)}
+  .seg-lens,.official-liquid-source,.official-liquid-chrome{display:none!important}
+  .official-liquid-host::before{opacity:1}
+  .seg-control > button[aria-pressed="true"],.seg-control > button.on,.seg-control > button[aria-selected="true"]{background:var(--accent-soft);border-color:var(--border)}
+  [data-lens]{filter:none !important}
+}
+
+/* ── الألوان المفروضة: إزالة المادة مع إبقاء البنية ── */
+@media (forced-colors:active){
+  .glass-a,.glass-b,.glass-c,.official-liquid-source,.official-liquid-chrome,.seg-lens,.btn .btn-sheen{background:Canvas;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none;border:1px solid ButtonBorder}
+  .seg-control > button[aria-pressed="true"],.seg-control > button.on,.seg-control > button[aria-selected="true"]{forced-color-adjust:none;background:Highlight;color:HighlightText}
+}
+
+/* ── حركة مخفضة: العدسة تقفز ولا تنزلق ── */
+@media (prefers-reduced-motion:reduce){
+  .seg-lens{transition:none}
+}
+
+@media (prefers-reduced-motion:reduce){.official-liquid-chrome{transition:none!important}}
+
+/* مشاركة سطح بطاقات الخوارزميات الخزامي نفسه مع قيود المهمة واللوحات المشابهة. */
+#challenge .ledger, .chapter .panel {
+  position:relative;isolation:isolate;overflow:hidden;
+  background:linear-gradient(140deg,#fbf8ff 0%,#eee3fb 54%,#f6efff 100%)!important;
+  border:1px solid rgba(138,99,194,.34)!important;
+  border-radius:calc(var(--radius-card) + 2px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),0 14px 34px rgba(103,68,162,.12)!important;
+}
+#challenge .ledger.official-glass-card > .official-liquid-source,
+.chapter .panel.official-glass-card > .official-liquid-source {
+  background:repeating-linear-gradient(116deg,rgba(145,91,219,.052) 0 1px,transparent 1px 14px),radial-gradient(ellipse 78% 84% at 8% 0%,rgba(255,255,255,.92),transparent 80%),radial-gradient(ellipse 95% 110% at 100% 100%,rgba(190,155,236,.35),transparent 79%),linear-gradient(140deg,rgba(251,244,255,.98),rgba(225,202,250,.87) 52%,rgba(245,232,255,.96));
+}
+#challenge .ledger.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+.chapter .panel.official-glass-card > .official-liquid-source + .official-liquid-chrome {
+  background:linear-gradient(135deg,rgba(255,255,255,.34),transparent 42%,rgba(218,185,253,.12) 80%,rgba(255,255,255,.24));
+  border-color:rgba(143,101,197,.32);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.98),inset 0 -1px 2px rgba(123,86,186,.08),0 14px 34px rgba(103,68,162,.11);
+}
+
+/* سطح زجاج خزامي موحد لمقاييس الخوارزميات وقوائم المقارنة السفلية. */
+#algRail .alg-card .stat,
+#compare .compare-side,
+#compare .cmp-row,
+#compare #cmpCity {
+  background:linear-gradient(140deg,rgba(251,244,255,.96),rgba(225,202,250,.76) 52%,rgba(245,232,255,.93))!important;
+  border:1px solid rgba(138,99,194,.34)!important;
+  border-radius:14px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.94),0 8px 22px rgba(103,68,162,.09)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(145%);
+  backdrop-filter:blur(16px) saturate(145%);
+  color:var(--text-primary);
+}
+#compare .compare-side{padding:20px;border-radius:calc(var(--radius-card) + 2px)}
+#compare .cmp-row{transition:border-color .2s,box-shadow .2s}
+#compare .cmp-row:hover{border-color:rgba(138,99,194,.58)!important}
+
+/* فلسفة المقارنة ودراسة الحساسية: زجاج خزامي مطابق لبطاقات الخوارزميات. */
+#compare .compare-side,
+#laboratory .sensitivity {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:linear-gradient(140deg,#fbf8ff 0%,#eee3fb 54%,#f6efff 100%)!important;
+  border:1px solid rgba(138,99,194,.34)!important;
+  border-radius:calc(var(--radius-card) + 2px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),0 14px 34px rgba(103,68,162,.12)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(145%);
+  backdrop-filter:blur(16px) saturate(145%);
+}
+#compare .compare-side.official-glass-card > .official-liquid-source,
+#laboratory .sensitivity.official-glass-card > .official-liquid-source {
+  background:repeating-linear-gradient(116deg,rgba(145,91,219,.052) 0 1px,transparent 1px 14px),radial-gradient(ellipse 78% 84% at 8% 0%,rgba(255,255,255,.92),transparent 80%),radial-gradient(ellipse 95% 110% at 100% 100%,rgba(190,155,236,.35),transparent 79%),linear-gradient(140deg,rgba(251,244,255,.98),rgba(225,202,250,.87) 52%,rgba(245,232,255,.96));
+}
+#compare .compare-side.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+#laboratory .sensitivity.official-glass-card > .official-liquid-source + .official-liquid-chrome {
+  background:linear-gradient(135deg,rgba(255,255,255,.34),transparent 42%,rgba(218,185,253,.12) 80%,rgba(255,255,255,.24));
+  border-color:rgba(143,101,197,.32);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.98),inset 0 -1px 2px rgba(123,86,186,.08),0 14px 34px rgba(103,68,162,.11);
+}
+
+/* مطابقة بطاقات شرح الخوارزميات لكل عناصر التحكم وأسطح الدراسة المطلوبة. */
+#mission .mission-controls, #lab .mission-controls, #laboratory .sensitivity, #challenge .ledger {
+ position:relative;isolation:isolate;overflow:hidden;
+ background:linear-gradient(140deg,#fbf8ff 0%,#eee3fb 54%,#f6efff 100%)!important;
+ border:1px solid rgba(138,99,194,.34)!important;
+ border-radius:calc(var(--radius-card) + 2px);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.98),0 14px 34px rgba(103,68,162,.12)!important;
+}
+#mission .mission-controls.official-glass-card > .official-liquid-source,
+#lab .mission-controls.official-glass-card > .official-liquid-source {
+ background:repeating-linear-gradient(116deg,rgba(145,91,219,.052) 0 1px,transparent 1px 14px),radial-gradient(ellipse 78% 84% at 8% 0%,rgba(255,255,255,.92),transparent 80%),radial-gradient(ellipse 95% 110% at 100% 100%,rgba(190,155,236,.35),transparent 79%),linear-gradient(140deg,rgba(251,244,255,.98),rgba(225,202,250,.87) 52%,rgba(245,232,255,.96));
+}
+#mission .mission-controls.official-glass-card > .official-liquid-source + .official-liquid-chrome,
+#lab .mission-controls.official-glass-card > .official-liquid-source + .official-liquid-chrome {
+ background:linear-gradient(135deg,rgba(255,255,255,.34),transparent 42%,rgba(218,185,253,.12) 80%,rgba(255,255,255,.24));
+ border-color:rgba(143,101,197,.32);
+ box-shadow:inset 0 1.5px 0 rgba(255,255,255,.98),inset 0 -1px 2px rgba(123,86,186,.08),0 14px 34px rgba(103,68,162,.11);
+}
+#challenge .formula, #challenge .terms, #challenge .terms li {
+ background:linear-gradient(140deg,rgba(251,244,255,.96),rgba(225,202,250,.76) 52%,rgba(245,232,255,.93))!important;
+ border:1px solid rgba(138,99,194,.34)!important;
+ border-radius:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.94),0 8px 22px rgba(103,68,162,.09)!important;
+ -webkit-backdrop-filter:blur(16px) saturate(145%);backdrop-filter:blur(16px) saturate(145%);
+}

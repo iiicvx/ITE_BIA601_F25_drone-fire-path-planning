@@ -1,0 +1,16 @@
+{
+ "pop_size": 60,
+ "crossover": "drone+segment+sbx",
+ "p_c": 0.9,
+ "eta_c": 15,
+ "tournament_k": 3,
+ "n_elite": 2,
+ "p_mut": 0.25,
+ "mut_width": 2.5,
+ "sigma_start": 0.1,
+ "sigma_end": 0.01,
+ "max_stall": null,
+ "target_f": null,
+ "init.mode": "via",
+ "_budget": null
+}

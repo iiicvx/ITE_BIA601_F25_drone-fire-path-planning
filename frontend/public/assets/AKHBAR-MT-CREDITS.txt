@@ -1,0 +1,13 @@
+Akhbar MT — Regular and Bold, version 1.0 (June 1993).
+Typeface Monotype Typography Ltd. Data Monotype Typography Ltd.,
+Type Solutions Inc. 1990–1993. All rights reserved.
+Akhbar is a trademark of The Monotype Corporation registered in certain countries.
+
+Webfont sources:
+https://www.onlinewebfonts.com/download/0c3a2374c4569b50b552b45f8454e934
+https://www.onlinewebfonts.com/download/d824f6a9cac7dcbe0534938644521973
+
+The original outlines, hinting and copyright metadata are retained. Unicode
+character maps and Arabic OpenType joining/lam-alef substitutions were added
+by frontend/prepare_akhbar.py to expose the original Windows Symbol glyphs on
+modern browsers. The source download itself does not support Unicode Arabic.

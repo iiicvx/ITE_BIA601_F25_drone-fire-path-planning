@@ -1,0 +1,190 @@
+/* مساحة العمل التشغيلية — نظام مواد Graphite Noir الحالي.
+   هندسة EasyUI LiquidToggle مكيفة في easyui.js؛ وكل الألوان مأخوذة من
+   متغيرات الزجاج في المشروع. لا سمة بصرية ثانية ولا إطار عمل آخر. */
+[hidden]{display:none!important}
+.status-safe{color:var(--ok)!important}
+.status-unsafe{color:var(--err)!important}
+.compact.btn{padding:8px 17px;min-height:42px;font-size:.82rem}
+.stage-loading>span:last-child{width:auto;height:auto;max-width:80%;background:none;border-radius:0;overflow:visible}
+.stage-loading>span:last-child::after{display:none}
+.stage-loading.done{visibility:hidden}
+
+#lab{max-width:1480px}
+.lab-workspace{margin-top:32px;min-width:0}
+.lab-config{display:flex;align-items:end;gap:14px;flex-wrap:wrap;border-radius:22px;padding:22px}
+.lab-config label{flex:1 1 130px;gap:6px;font-size:.78rem}
+.lab-config .btn{align-self:end;min-width:155px;flex:0 0 auto}
+.lab-config select{font-size:.88rem}
+.lab-summary{display:flex;align-items:center;justify-content:space-between;gap:8px 24px;padding:16px 5px;font-size:.83rem;flex-wrap:wrap}
+.lab-summary p{margin:0}
+.plan-facts{display:flex;gap:8px 24px;flex-wrap:wrap;margin:0;font-size:.78rem}
+.plan-facts>div{display:flex;align-items:baseline;gap:8px}
+.plan-facts dt{color:var(--text-secondary)}
+.plan-facts dd{margin:0;direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.lab-stage{height:clamp(600px,79svh,880px);border-radius:26px;isolation:isolate;background:#101b25}
+#labCanvas{display:block;width:100%;height:100%;touch-action:none}
+.lab-stage:fullscreen{height:100vh;width:100vw;border-radius:0;border:0}
+.lab-stage.expanded{position:fixed;inset:16px;z-index:150;height:calc(100svh - 32px);width:calc(100vw - 32px)}
+.lab-stage .scene-hud{top:20px;inset-inline:20px}
+.scene-hud span{max-width:80%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.flight-timeline{display:flex;align-items:center;gap:18px;padding:16px 20px;margin-top:12px;border-radius:20px;flex-wrap:wrap}
+.flight-timeline .btn{min-width:140px;font-size:.82rem;padding:10px 18px}
+.flight-timeline #missionScrub{direction:ltr;flex:1 1 240px;min-width:130px;cursor:pointer}
+.flight-timeline .mono{white-space:nowrap}
+.playback-speed{display:flex;flex-direction:row;align-items:center;gap:8px;flex:0 1 135px;font-size:.75rem}
+.playback-speed select{font:inherit;padding:6px 10px;min-height:40px;width:75px}
+
+/* شريط كاميرا جرافيتي محدود، بعيد عن زر الإجراء ويعمل بلوحة المفاتيح. */
+.viewer-tools{border-radius:18px;padding:9px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;max-width:100%;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.camera-dock{position:absolute;z-index:5;inset-inline:20px;bottom:20px;width:fit-content;margin-inline:auto}
+.camera-modes{display:flex;gap:3px;background:rgba(0,0,0,.25);border:1px solid var(--border-subtle);padding:3px;border-radius:13px}
+.viewer-tools button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;min-width:40px;padding:7px 13px;border:1px solid transparent;background:transparent;border-radius:10px;color:var(--text-secondary);font-family:var(--sans);font-size:.78rem;cursor:pointer;transition:background-color .18s,color .18s,box-shadow .18s}
+.viewer-tools button[aria-pressed=true]{background:var(--noir-selection);color:var(--text-primary);border-color:var(--glass-border);box-shadow:inset 0 1px 0 var(--glass-highlight),0 2px 6px rgba(0,0,0,.25)}
+.zoom-tools{display:flex;border-inline-start:1px solid var(--border-subtle);padding-inline-start:5px}
+.zoom-tools button{font:1.2rem var(--sans);padding:4px 8px}
+.drone-picker{flex:0 1 auto;flex-direction:row;align-items:center;gap:8px;padding-inline:7px;font-size:.7rem}
+.drone-picker select{font-size:.78rem;padding:7px 10px;min-height:40px;width:120px;border-radius:10px}
+.drone-picker>span{white-space:nowrap}
+.story-steps{pointer-events:none}
+.step-card{pointer-events:auto}
+.story-camera-dock{position:absolute;top:100px;left:24px;right:auto;z-index:5;max-width:min(450px,calc(100vw - 48px));box-shadow:var(--glass-shadow-lg)}
+.story-camera-dock .camera-modes{width:100%;justify-content:space-between}
+.story-camera-dock .camera-modes button{flex:1}
+.story-stage .scene-hud{top:175px;inset-inline:24px}
+.story-stage .scene-hud span{max-width:45%}
+
+.flight-readout{position:absolute;z-index:3;top:76px;inset-inline-end:20px;min-width:178px;border-radius:16px;padding:14px 16px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.readout-title{display:flex;align-items:center;justify-content:space-between;gap:15px;font:600 1.1rem var(--mono);color:var(--text-primary)}
+.readout-title>span{font:500 .72rem var(--sans);color:var(--text-secondary)}
+.flight-readout dl{margin:8px 0 0}
+.flight-readout dl>div{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:6px}
+.flight-readout dt{font-size:.69rem;color:var(--text-tertiary)}
+.flight-readout dd{margin:0;font:500 .78rem var(--mono);color:var(--text-primary)}
+.cockpit-reticle{display:none;position:absolute;width:28px;height:28px;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(229,241,250,.6);border-radius:50%;pointer-events:none}
+.cockpit-reticle::after,.cockpit-reticle::before{content:"";position:absolute;background:rgba(229,241,250,.7)}
+.cockpit-reticle::after{top:13px;left:-8px;width:42px;height:1px}
+.cockpit-reticle::before{left:13px;top:-8px;height:42px;width:1px}
+.is-cockpit .cockpit-reticle{display:block}
+.is-fleet .flight-readout{display:none}
+
+/* مفتاح EasyUI الانسيابي، مقرون بنصوص مقروءة وحالة تبديل حقيقية. */
+.scene-options{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.liquid-option{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:6px 13px;border:1px solid var(--glass-border);border-radius:14px;background:var(--noir-inset);color:var(--text-secondary);font:500 .79rem var(--sans);box-shadow:inset 0 1px 0 rgba(219,233,242,.13);cursor:pointer;transition:border-color .2s,color .2s}
+.liquid-option[aria-checked=true]{color:var(--text-primary);border-color:var(--accent-border)}
+.liquid-option svg{width:45px;height:26px;flex-shrink:0;direction:ltr;overflow:visible}
+.liquid-option rect{fill:#0b1116;stroke:#596772}
+.liquid-option path{fill:#91a1ad;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+.liquid-option[aria-checked=true] path{fill:#e0e8ef}
+.workspace-metrics{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:22px 0 10px}
+.workspace-metrics>div{min-width:0;border:1px solid var(--glass-border);border-radius:17px;background:var(--noir-inset);box-shadow:var(--noir-edge-shadow);padding:16px 18px}
+.workspace-metrics dt{font-size:.72rem;color:var(--text-tertiary)}
+.workspace-metrics dd{font-size:1.17rem;font-weight:600;margin:5px 0 0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.workspace-metrics .ltr{font-family:var(--mono);font-size:1.1rem}
+.flight-details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0}
+.flight-details .panel{padding:18px 22px;margin:0;align-self:start}
+.flight-details summary{font-size:.87rem;cursor:pointer;min-height:32px}
+.flight-details input{width:100%;margin:12px 0;direction:ltr}
+.flight-details output{display:block;font-size:.8rem;color:var(--text-secondary)}
+.flight-details .table-wrap{margin-block:15px}
+
+.winner-banner{display:flex;align-items:center;gap:20px;padding:18px 24px;border-radius:18px;margin-bottom:22px;flex-wrap:wrap;font-size:.86rem}
+.winner-banner strong{font:600 1.7rem var(--mono)}
+.winner-banner span:last-child{margin-inline-start:auto;font-size:.8rem;color:var(--text-secondary)}
+.cases-heading{margin:48px 0 20px}
+.cases-heading h3{font-size:1.3rem;margin:0}
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.case-card{align-self:start;border:1px solid var(--glass-border);background:var(--noir-card-strong);border-radius:18px;box-shadow:var(--noir-edge-shadow);overflow:hidden}
+.case-card summary{display:flex;align-items:center;gap:12px;padding:19px 20px;min-height:78px;cursor:pointer;font-size:.87rem;list-style:none}
+.case-card summary::-webkit-details-marker{display:none}
+.case-card summary::after{content:"+";font-size:1.2rem;color:var(--text-tertiary);margin-inline-start:5px}
+.case-card[open] summary::after{content:"−"}
+.case-card[open] summary{border-bottom:1px solid var(--border-subtle)}
+.case-number{color:var(--text-tertiary);font:.8rem var(--mono)}
+.case-expect{font-size:.66rem;margin-inline-start:auto;border:1px solid var(--border);border-radius:999px;padding:2px 10px;white-space:nowrap;color:var(--text-secondary)}
+.case-body{padding:4px 24px 22px}
+.case-body p{font-size:.85rem;color:var(--text-secondary)}
+.case-verdicts{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:.74rem;margin:16px 0}
+.case-verdicts b{font:600 .76rem var(--mono);margin-inline-end:5px}
+.winner-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px 0}
+.winner-card{margin:0;padding:26px}
+.winner-card .kicker{font-size:.8rem}
+.winner-code{display:block;font:600 2.8rem var(--mono);margin:20px 0 8px;letter-spacing:-.05em}
+.winner-card p{font-size:.83rem;color:var(--text-secondary)}
+.winner-card .note{font-size:.72rem;margin-bottom:0}
+.winner-statuses{display:flex;gap:14px;flex-wrap:wrap;font-size:.77rem;padding-top:12px;border-top:1px solid var(--border-subtle)}
+.winner-statuses b{font-family:var(--mono)}
+.insights-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.insight-card{position:relative;margin:0;padding:30px}
+.insight-number{position:absolute;top:25px;inset-inline-end:26px;font:.76rem var(--mono);color:var(--text-tertiary)}
+.insight-metric{font:500 1.5rem var(--mono);color:var(--accent-hover);margin:12px 0 22px}
+.insight-card h3{font-size:1.1rem;margin-bottom:12px}
+.insight-card>p:not(.insight-metric){color:var(--text-secondary);font-size:.91rem;line-height:1.95}
+.insight-card small{display:block;font-size:.7rem;color:var(--text-tertiary);border-top:1px solid var(--border-subtle);padding-top:15px;margin-top:22px}
+@media(hover:hover) and (pointer:fine){
+  .viewer-tools button:hover{color:var(--text-primary);background-color:rgba(190,209,224,.10)}
+  .liquid-option:hover,.case-card:hover{border-color:var(--accent-border)}
+}
+@media(max-width:1100px){
+  .workspace-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .lab-stage{height:75svh;min-height:600px}
+  .lab-config .btn{flex:1 1 160px}
+}
+@media(max-width:720px){
+  #lab{padding-inline:14px}
+  .lab-config{padding:16px;gap:12px;border-radius:18px}
+  .lab-config label{flex:1 1 calc(50% - 12px)}
+  .lab-config select{font-size:16px;padding-inline:10px}
+  .lab-stage{height:78svh;min-height:570px;border-radius:20px}
+  .camera-dock{inset-inline:10px;bottom:12px;width:calc(100% - 20px);justify-content:center;padding:7px;gap:5px}
+  .camera-modes{width:100%;justify-content:space-between}
+  .camera-modes button{flex:1;padding:7px 8px;font-size:.72rem}
+  .drone-picker{flex:1;justify-content:center}
+  .drone-picker select{width:110px}
+  .viewer-tools .zoom-tools button{min-height:36px}
+  .flight-readout{top:74px;inset-inline-end:12px;min-width:150px;padding:11px 13px}
+  .flight-readout dt{font-size:.65rem}
+  .flight-timeline{gap:10px;padding:13px}
+  .flight-timeline #missionScrub{order:5;flex-basis:100%;margin:0}
+  .flight-timeline .btn{min-width:0;padding:10px 14px}
+  .flight-timeline #missionClock{margin-inline-start:auto;font-size:.71rem}
+  .playback-speed{flex-basis:110px;margin-inline-start:auto}
+  #labFullscreen{order:6;width:100%}
+  .flight-details,.case-grid,.insights-grid{grid-template-columns:minmax(0,1fr)}
+  .workspace-metrics{gap:8px}
+  .workspace-metrics>div{padding:13px 11px}
+  .workspace-metrics dd,.workspace-metrics .ltr{font-size:.92rem}
+  .workspace-metrics dt{font-size:.65rem}
+  .scene-options{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .liquid-option{padding:7px 10px;gap:4px;justify-content:space-between;font-size:.72rem}
+  .story-camera-dock{top:92px;left:14px;max-width:calc(100vw - 28px);padding:7px;gap:5px}
+  .story-stage .scene-hud{top:240px;inset-inline:14px}
+  .story-camera-dock .drone-picker{justify-content:start}
+  .story .step{align-items:end;padding-bottom:118px}
+  .step-card{padding:20px 24px;width:min(340px,calc(100vw - 32px))}
+  .winner-grid{grid-template-columns:1fr;gap:12px}
+  .winner-card{display:grid;grid-template-columns:1fr auto;padding:22px;gap:4px 18px}
+  .winner-card .kicker{grid-column:1;align-self:center;margin:0}
+  .winner-code{grid-column:2;grid-row:1 / span 2;font-size:2rem;margin:0;align-self:center}
+  .winner-card p{margin:0}
+  .winner-statuses,.winner-card .note{grid-column:1 / -1;margin-top:8px}
+  .winner-banner{padding:16px;gap:10px 18px}
+  .winner-banner span:last-child{width:100%;margin:0}
+  .case-card summary{padding:15px;gap:9px;font-size:.8rem}
+  .case-expect{font-size:.6rem;padding-inline:7px}
+  .insight-card{padding:26px}
+}
+@media(prefers-reduced-motion:reduce){
+  .viewer-tools button,.liquid-option{transition:none}
+}
+@media(prefers-reduced-transparency:reduce){
+  .viewer-tools,.flight-readout,.lab-config,.flight-timeline{background:var(--bg-secondary);backdrop-filter:none}
+}
+/* حالات الحافة: بوابة الخطة المرفوضة وحكم أفضل خطة آمنة */
+.diagnostic-gate{position:absolute;left:20px;top:64px;z-index:5;width:min(420px,calc(100% - 40px));padding:18px 20px;border-radius:18px;text-align:start;display:grid;gap:8px}
+.diagnostic-gate[hidden]{display:none}
+.diagnostic-gate strong{font-size:1rem}
+.diagnostic-gate p{margin:0}
+.gate-actions{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px;margin-top:4px}
+.lab-stage.is-gated .flight-readout{visibility:hidden}
+.metric-note{display:block;font-size:.72em;opacity:.75;font-weight:400}
+.case-best{margin:10px 0 0;font-size:.82rem}

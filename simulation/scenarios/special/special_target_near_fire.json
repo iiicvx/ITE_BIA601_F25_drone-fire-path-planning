@@ -1,0 +1,91 @@
+{
+ "name": "special_target_near_fire",
+ "size": "small",
+ "seed": 0,
+ "seed_used": 0,
+ "world": {
+  "W": 300,
+  "z_min": 10,
+  "z_max": 150,
+  "d_safe": 5,
+  "grid_res": 10
+ },
+ "drone": {
+  "speed": 10,
+  "d_sep": 10,
+  "e_c": 20,
+  "e_up": 100,
+  "battery_kj": 799,
+  "battery_usable": 0.8
+ },
+ "hazard": {
+  "k": 0.25,
+  "tau_core": 0.5,
+  "grid_tau": 0.45,
+  "sample_ds": 2
+ },
+ "problem": {
+  "n_drones": 1,
+  "n_waypoints": 6,
+  "n_variables": 18,
+  "budget_fe": 10000
+ },
+ "staging": {
+  "edge": "W",
+  "points": [
+   [
+    30.0,
+    150.0,
+    10.0
+   ]
+  ]
+ },
+ "buildings": [
+  {
+   "id": 0,
+   "x0": 180.0,
+   "y0": 120.0,
+   "x1": 230.0,
+   "y1": 180.0,
+   "h": 110.0
+  }
+ ],
+ "fires": [
+  {
+   "id": 0,
+   "building": 0,
+   "face": "W",
+   "c": [
+    180.0,
+    150.0,
+    70.0
+   ],
+   "normal": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "R": 15.0,
+   "I": 1.0,
+   "Hf": 80.0,
+   "handled_by": "drone"
+  }
+ ],
+ "missions": [
+  {
+   "k": 0,
+   "fire": 0,
+   "S": [
+    30.0,
+    150.0,
+    10.0
+   ],
+   "G": [
+    163.5,
+    150.0,
+    65.0
+   ]
+  }
+ ],
+ "schema": "drone-fire-scenario/1"
+}

@@ -1,0 +1,120 @@
+{
+  "errors": [],
+  "renderer": "SwiftShader; scheduling counters, not a hardware benchmark",
+  "ambient": {
+    "layout": {
+      "left": 36,
+      "top": 520.421052631579,
+      "right": 856,
+      "bottom": 952,
+      "width": 820,
+      "height": 431.5789473684211,
+      "opacity": 0.94,
+      "fixed": true,
+      "anchor": "left",
+      "covered": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000,
+        "left": 0,
+        "top": 0
+      }
+    },
+    "rotorsAnimated": true,
+    "fixedAcrossScroll": true,
+    "bodyStationary": true
+  },
+  "offscreen": {
+    "sampleMs": 1200,
+    "before": [
+      {
+        "id": "heroCanvas",
+        "callbacks": 8,
+        "updates": 4,
+        "renders": 4,
+        "resizes": 2,
+        "t": -2.5,
+        "visualTime": 0.30000000000000004
+      },
+      {
+        "id": "storyCanvas",
+        "callbacks": 0,
+        "updates": 0,
+        "renders": 0,
+        "resizes": 0,
+        "t": -4,
+        "visualTime": 0
+      },
+      {
+        "id": "labCanvas",
+        "callbacks": 37,
+        "updates": 23,
+        "renders": 23,
+        "resizes": 1,
+        "t": 10.600000000000001,
+        "visualTime": 1.6000000000000003
+      }
+    ],
+    "after": [
+      {
+        "id": "heroCanvas",
+        "callbacks": 8,
+        "updates": 4,
+        "renders": 4,
+        "resizes": 2,
+        "t": -2.5,
+        "visualTime": 0.30000000000000004
+      },
+      {
+        "id": "storyCanvas",
+        "callbacks": 0,
+        "updates": 0,
+        "renders": 0,
+        "resizes": 0,
+        "t": -4,
+        "visualTime": 0
+      },
+      {
+        "id": "labCanvas",
+        "callbacks": 37,
+        "updates": 23,
+        "renders": 23,
+        "resizes": 1,
+        "t": 10.600000000000001,
+        "visualTime": 1.6000000000000003
+      }
+    ],
+    "callbackDelta": [
+      0,
+      0,
+      0
+    ]
+  },
+  "resume": {
+    "sameWorld": true,
+    "sameEnvironment": true,
+    "sameModel": true,
+    "sameLoad": true,
+    "firstDelta": 0,
+    "playing": true,
+    "selected": 5,
+    "camera": "fleet",
+    "speed": 3
+  },
+  "backForwardCache": {
+    "stateRetained": true,
+    "firstResumeDelta": 0
+  },
+  "documentVisibility": {
+    "allCountersFrozen": true,
+    "firstResumeDelta": 0,
+    "eventPath": "visibilitychange"
+  },
+  "liveJob": {
+    "job": "c711a80a4314",
+    "preserved": true,
+    "offscreenPollDelta": 0,
+    "resumedSuccessfully": true
+  },
+  "passed": true
+}

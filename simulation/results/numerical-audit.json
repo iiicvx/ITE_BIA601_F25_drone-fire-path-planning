@@ -1,0 +1,14 @@
+{
+  "checks": 9413,
+  "tables": {
+    "runs.csv": 336,
+    "main_summary.csv": 12,
+    "timing_summary.csv": 12,
+    "main_wilcoxon.csv": 18,
+    "random_summary.csv": 12,
+    "sensitivity.csv": 115,
+    "special/summary.csv": 100
+  },
+  "failures": [],
+  "passed": true
+}
